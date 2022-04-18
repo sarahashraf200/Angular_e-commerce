@@ -1,0 +1,118 @@
+<p>cart works!</p><div class="shopping-cart">
+    <!-- Title -->
+    
+    
+    <div class="title">
+      Shopping Bag
+    </div>
+   
+    <!-- Product #1 -->
+    <div></div>
+    <div> <span id = "product"> product</span>  <span id="qt"> quantity</span> <span id="price"> price</span> <span> total</span></div>
+    
+    <div class="item">
+      <div class="buttons">
+        <span class="delete-btn"></span>
+        <span class="like-btn"></span>
+      </div>
+     
+      
+      <div class="image">
+        <img srcURL="D:\Downloads\khkzuztggmlehaea\images\item1.png.jpg" alt="" />
+      </div>
+   
+      <div class="description">
+        <span>Common Projects</span>
+        <span>Bball High</span>
+        <span>White</span>
+      </div>
+      
+      <div class="quantity">
+        <select [(ngModel)]="car_y" (change)="selected()">
+            <option value="null" selected disabled>Select option</option>
+            <option *ngFor="let item of data" [ngValue]="item">{{item}}</option>
+        </select>
+    
+      </div>
+   
+      <div class="total-price" [(ngModel)] = "total1" ngDefaultControl>{{total1 }}</div>
+      <div class="total-price" [(ngModel)] = "total_price" ngDefaultControl>{{total_price}}</div>
+    </div>
+   
+    <div class="item" *ngFor="let item of data;let i=index">
+        
+        <div class="buttons">
+            <span class="delete-btn"></span>
+            <span class="like-btn"></span>
+          </div>
+       
+          <div class="image">
+            <img src="" alt=""/>
+          </div>
+       
+          <div class="description">
+            <span>Maison Margiela</span>
+            <span>Future Sneakers</span>
+            <span>White</span>
+          </div>
+          <div class="total-price" [(ngModel)] = "item[i]" ngDefaultControl>{{total1 }}</div>
+    </div>
+    <!-- Product #2 -->
+    <div class="item">
+      <div class="buttons">
+        <span class="delete-btn"></span>
+        <span class="like-btn"></span>
+      </div>
+   
+      <div class="image">
+        <img src="" alt=""/>
+      </div>
+   
+      <div class="description">
+        <span>Maison Margiela</span>
+        <span>Future Sneakers</span>
+        <span>White</span>
+      </div>
+   
+      <div class="quantity">
+        <select [(ngModel)]="car_y1" ngDefaultContorl (change)="selected()">
+            <option value="null" selected disabled>Select option</option>>
+            <option *ngFor="let item of data" [ngValue]="item">{{item}}</option>
+        </select>
+    
+      </div>
+   
+      <div class="total-price" [(ngModel)] = "total2" ngDefaultControl>{{total2}}</div>
+      <div class="total-price" [(ngModel)] = "total_price1" ngDefaultControl>{{total_price1}}</div>
+    </div>
+    
+   
+    <!-- Product #3 -->
+    <div class="item">
+      <div class="buttons">
+        <span class="delete-btn"></span>
+        <span class="like-btn"></span>
+      </div>
+   
+      <div class="image">
+        <img src="item-3.png" alt="" />
+      </div>
+   
+      <div class="description">
+        <span>Our Legacy</span>
+        <span>Brushed Scarf</span>
+        <span>Brown</span>
+      </div>
+   
+      <div class="quantity">
+        <select [(ngModel)]="car_y2" (change)="selected()">
+            <option value="null" selected disabled>Select option</option>
+            <option *ngFor="let item of data" [ngValue]="item">{{item}}</option>
+        </select>
+    
+      </div>
+   
+      <div class="total-price"[(ngModel)] = "total3" ngDefaultControl>{{total3 }}</div>
+      <div class="total-price" [(ngModel)] = "total_price2" ngDefaultControl>{{total_price2}}</div>
+    </div>
+  </div>

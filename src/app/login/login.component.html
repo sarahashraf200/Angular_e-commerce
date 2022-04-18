@@ -1,0 +1,21 @@
+<h2> login </h2>
+<form >
+  
+    <div class="container">
+      <label id= "uname"for="uname"><b>Username</b></label>
+      <br>
+      <input type="text"   [(ngModel)] = "username" placeholder="Enter Username" name="uname" required>
+      <br>
+      <div *ngIf = "!success_flag && click_flag">
+           <span id="flag"> "Wrong username or password"</span>
+      </div>
+      <br>
+      <label id="pass" for="psw"><b>Password</b></label>
+      <br>
+      <input type="password" [(ngModel)] = "password" placeholder="Enter Password" name="psw" required>
+      <br>    
+      <br>
+      <button type="submit" (click) = "onclick()">Login</button>
+    
+</div>
+</form>
