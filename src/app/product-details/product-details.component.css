@@ -1,0 +1,21 @@
+#small-icons{
+  margin:5%;
+  color:rgb(176, 146, 220)
+}
+
+.icons-container{
+  margin-top:5%
+}
+
+.custom-btn{
+  background-color:rgb(176, 146, 220);
+  width:200px;
+  height:50px;
+  border-radius: 50px;
+  border-color: aliceblue;
+  margin-left: 10%;
+}
+
+.product-num-container{
+  margin-top: 10%;
+}
