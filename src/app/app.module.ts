@@ -7,13 +7,19 @@ import { FormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
 import { CartComponent } from './cart/cart.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
+import { FooterComponent } from './footer/footer.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { CarouselComponent } from './carousel/carousel.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     CartComponent,
-    ProductDetailsComponent
+    ProductDetailsComponent,
+    FooterComponent,
+    NavbarComponent,
+    CarouselComponent
   ],
   imports: [
     BrowserModule,
@@ -22,6 +28,6 @@ import { ProductDetailsComponent } from './product-details/product-details.compo
 
   ],
   providers: [],
-  bootstrap: [CartComponent]
+  bootstrap: [AppComponent]
 })
 export class AppModule { }
