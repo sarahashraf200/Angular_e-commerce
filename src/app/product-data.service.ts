@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { ProductDetailsComponent } from './product-details/product-details.component';
+import { ProductDetailsComponent } from './ProductPageComponents/product-details/product-details.component';
 import { BehaviorSubject , Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
@@ -16,7 +16,7 @@ export class ProductDataService {
   } 
   setProduct(product : any){
    this.cartItemList.push(product);
-    this.productList.next(product);
+   this.productList.next(product);
   }
   addtoCart(product : any){
     this.cartItemList.push(product);

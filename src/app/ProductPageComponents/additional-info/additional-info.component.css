@@ -1,0 +1,13 @@
+.container{
+    color:rgb(155, 155, 155);
+    padding:3%;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: medium;
+    width: 50%;
+    margin: auto;
+}
+
+.list-item{
+    padding:1%;
+}
+

@@ -1,0 +1,11 @@
+.box-container{
+    width: 90%;
+    margin: auto;
+    border-color: gray;
+    border-top-color: white;
+}
+
+.tabs{
+    padding-top: 2%;
+    width: 50%;
+}

@@ -1,0 +1,36 @@
+.custom-btn {
+    background-color: rgb(176, 146, 220);
+    width: 40%;
+    height: 50px;
+    border-radius: 50px;
+    color: white;
+}
+
+.btn-div {
+    padding: 5%;
+    margin-left: 70%;
+    width: 40%;
+}
+
+
+.review-text,
+.username {
+    color: rgb(155, 155, 155);
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: medium;
+    padding: 1%;
+}
+
+.username {
+    font-size: large;
+}
+
+.user-card {
+    width: 40%;
+    padding: 2%;
+    margin-left: 10%;
+}
+
+#Review{
+    height: 200px;
+}

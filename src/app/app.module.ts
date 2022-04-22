@@ -6,11 +6,20 @@ import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
 import { CartComponent } from './cart/cart.component';
-import { ProductDetailsComponent } from './product-details/product-details.component';
+import { ProductDetailsComponent } from './ProductPageComponents/product-details/product-details.component';
 import { FooterComponent } from './footer/footer.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { CarouselComponent } from './carousel/carousel.component';
 import { ProductDataService } from './product-data.service';
+
+import { ReviewsComponent } from './ProductPageComponents/reviews/reviews.component';
+import { AdditionalInfoComponent } from './ProductPageComponents/additional-info/additional-info.component';
+import { DescriptionComponent } from './ProductPageComponents/description/description.component';
+import { ProductPageComponent } from './ProductPageComponents/product-page/product-page.component';
+import { TabsPanelComponent } from './ProductPageComponents/tabs-panel/tabs-panel.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatTabsModule} from '@angular/material/tabs';
+
 
 @NgModule({
   declarations: [
@@ -20,15 +29,22 @@ import { ProductDataService } from './product-data.service';
     ProductDetailsComponent,
     FooterComponent,
     NavbarComponent,
-    CarouselComponent
+    CarouselComponent,
+    ReviewsComponent,
+    AdditionalInfoComponent,
+    DescriptionComponent,
+    ProductPageComponent,
+    TabsPanelComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule,
+    MatTabsModule
 
   ],
   providers: [ProductDataService],
-  bootstrap: [ ProductDetailsComponent , CartComponent]
+  bootstrap: [AppComponent]
 })
 export class AppModule { }

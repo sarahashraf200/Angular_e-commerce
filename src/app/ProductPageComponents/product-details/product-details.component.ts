@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ProductDataService } from '../product-data.service' ; 
+import { ProductDataService } from '../../product-data.service' ; 
 
 @Component({
   selector: 'app-product-details',
@@ -20,7 +20,7 @@ export class ProductDetailsComponent implements OnInit {
    }
 
    Submit (){
-     var product : any = {name : this.name , price : this.price , desc : this.desc ,size : this.size_selection , color : this.color_selection,
+     var product = {name : this.name , price : this.price , desc : this.desc ,size : this.size_selection , color : this.color_selection,
       qt: this.qt }
      this.dservice.setProduct(product);
    
