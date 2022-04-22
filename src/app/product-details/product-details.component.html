@@ -1,9 +1,10 @@
 
 
+<br> 
 <!-- Product Detail -->
 <section class="sec-product-detail bg0 p-t-65 p-b-60">
     <div class="container">
-  
+       
         <div class="row"> 
             <div class="col-sm-1" style="margin-right:30px; " >
                 <div class="column" style="margin-bottom:20px; ">
@@ -44,18 +45,18 @@
             <div class="col-md-6 col-lg-5 p-b-30">
                 <div class="p-r-50 p-t-5 p-lr-0-lg">
                     <h4 class="">
-                        Lightweight Jacket
+                        {{name}}
                     </h4>
 
                     <span class="">
-                        $58.79
+                        ${{price}}
                     </span>
 
                     <p class="">
-                        Nulla eget sem vitae eros pharetra viverra. Nam vitae luctus ligula. Mauris consequat ornare feugiat.
+                       {{desc}}
                     </p>
                     
-                    <!--  -->
+                     
                     <div class="p-t-33">
                         <div class="flex-w flex-r-m p-b-10">
                             <div class="size-203 flex-c-m respon6">
@@ -63,21 +64,23 @@
                             </div>
 
                             <div class="size-204 respon6-next">
-                                    <select class="form-select" aria-label="Default select example">
+                                    <select [(ngModel)] = "size_selection" class="form-select" aria-label="Default select example">
                                         <option>Choose an option</option>
                                         <option>Size S</option>
                                         <option>Size M</option>
                                         <option>Size L</option>
                                         <option>Size XL</option>
                                     </select>
+                                    
                             </div>
+                
                         </div>
 
                         <div class="flex-w flex-r-m p-b-10">
                             <div class="size-203 flex-c-m respon6">
                                 Color
                             </div>                                                                  
-                                <select class="form-select" aria-label="Default select example">
+                                <select [(ngModel)] = color_selection class="form-select" aria-label="Default select example">
                                     <option>Choose an option</option>
                                     <option>Red</option>
                                     <option>Blue</option>
@@ -89,9 +92,10 @@
                             <div class="size-204 flex-w flex-m respon6-next">
                                 <div>
                                     <i class=" fa fa-minus"  style="margin:1%"></i>
-                                    <input type="number" value="1" min="0" max="10" step="1"  style="margin:1%"/>
-                                    <i class="fa fa-plus"  style="margin:1%"></i>      
-                                    <a href="/cart"  class="btn btn-secondary custom-btn ">
+                                    <input type="number" [(ngModel)] = "qt" value="1" min="0" max="10" step="1"  style="margin:1%"/>
+                                    <i class="fa fa-plus"  style="margin:1%"></i> 
+                                      
+                                    <a href="/cart" (click) = "Submit()" class="btn btn-secondary custom-btn ">
                                         Add to cart
                                     </a>                       
                                 </div>
@@ -100,7 +104,7 @@
                         </div>	
                     </div>
 
-                    <!--  -->
+                    
                     <div class="icons-container">
                             <a id="small-icons" href="#" class="fs-14 cl3 hov-cl1 trans-04 lh-10 p-lr-5 p-tb-2 js-addwish-detail tooltip100" data-tooltip="Add to Wishlist">
                                 <i class="zmdi zmdi-favorite"></i>
@@ -123,4 +127,3 @@
         </div>
     </div>
 </section>
-

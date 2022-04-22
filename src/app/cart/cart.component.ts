@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-
+import { ProductDataService } from '../product-data.service' ; 
+import { BehaviorSubject , observable} from 'rxjs';
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
@@ -15,14 +16,28 @@ export class CartComponent implements OnInit {
   public total_price = 0;
   public total_price1 = 0;
   public total_price2 = 0;
+   productx = {
+     desc: '',
+     price : 0
 
+   }
   data:Array<any> = [ 1 , 2 , 3 , 4 ,5 ];
-  constructor() { }
-
+  
+  public products : any =[];
+  constructor(public cartService: ProductDataService) { }
+  
   ngOnInit(): void {
+   this.cartService.getProducts()
+   .subscribe(res=>{
+     this.products = res;
+   })
+ 
   }
+  
+  
+
   selected(){
-    console.log(this.car_y);
+   /* console.log(this.car_y);
     console.log(this.car_y1);
     console.log(this.car_y2);
     console.log("t1  ", this.total1);
@@ -36,5 +51,6 @@ export class CartComponent implements OnInit {
     console.log("t2  ", this.total_price1);
     console.log("t3  ", this.total_price2);
   
+  }*/
   }
 }

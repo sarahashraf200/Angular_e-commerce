@@ -10,6 +10,7 @@ import { ProductDetailsComponent } from './product-details/product-details.compo
 import { FooterComponent } from './footer/footer.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { CarouselComponent } from './carousel/carousel.component';
+import { ProductDataService } from './product-data.service';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,7 @@ import { CarouselComponent } from './carousel/carousel.component';
     FormsModule
 
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [ProductDataService],
+  bootstrap: [ ProductDetailsComponent , CartComponent]
 })
 export class AppModule { }
