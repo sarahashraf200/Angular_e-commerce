@@ -1,6 +1,6 @@
-.shopping-cart {
+/*.shopping-cart {
   width: 750px;
-  /* height: 423px; */
+  /* height: 423px; 
   margin: 80px auto;
   background: #FFFFFF;
   box-shadow: 1px 2px 3px 0px rgba(0, 0, 0, 0.10);
@@ -63,14 +63,14 @@
 .delete-btn {
   width: 18px;
   height: 17px;
-  /*  background: url(&amp;quot;delete-icn.svg&amp;quot;) no-repeat center;*/
+  /*  background: url(&amp;quot;delete-icn.svg&amp;quot;) no-repeat center;
 }
 
 .like-btn {
   position: absolute;
   top: 9px;
   left: 15px;
-  /*background: url('twitter-heart.png');*/
+  /*background: url('twitter-heart.png');
   width: 60px;
   height: 60px;
   background-size: 2900%;
@@ -200,4 +200,71 @@ input:focus {
   .buttons {
     margin-right: 20px;
   }
+}*/
+.containter {
+  width : 50%;
+
+}
+.card {
+  height: 60vh;
+  margin: 25px;
+  padding: 25px;
+  float: left;
+}
+
+.center img {
+  text-decoration: none;
+  color: inherit;
+  border: none;
+  outline: none;
+  height: 162px;
+  width: 250px;
+  margin: 20px 0px;
+}
+#test {
+  display: inline-block;
+  float: right;
+  border: 2px solid rgba(150, 146, 146, 0.2);
+  border-radius: .10rem;
+  font-size: 15px;
+  font-weight: bold;
+  height: 200px;
+  font-style: normal;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  margin-top: 3%;
+  width: 250px;
+}
+h4,
+h6 {
+  font-weight: 50;
+}
+
+
+.center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.card-table {
+  position: relative;
+  display: inline-block;
+  flex-direction: column;
+  min-width: none;
+  width: 80%;
+  word-wrap: break-word;
+  background-color: #fff;
+  background-clip: border-box;
+  border: 2px solid rgba(150, 146, 146, 0.2);
+  border-radius: .10rem;
+}
+
+.center .btn {
+  font-size: 14px !important;
+  margin-top: 20px !important;
+  font-weight: 400;
+  padding: 12px 72px;
+  border-radius: 3px !important;
 }
