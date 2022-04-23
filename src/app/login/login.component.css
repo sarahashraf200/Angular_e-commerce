@@ -1,4 +1,4 @@
-body {font-family: Arial, Helvetica, sans-serif;}
+/*body {font-family: Arial, Helvetica, sans-serif;}
 form {border: 3px solid #f1f1f1;
    margin-left: auto;
    margin-right: auto;
@@ -73,4 +73,11 @@ img.avatar {
 span.psw {
   float: right;
   padding-top: 16px;
-}
+}*/
+.form-control.ng-touched.ng-invalid {
+  border:1px solid red;
+ }
+ .form-control.ng-touched.ng-valid {
+  border:1px solid green;
+ }
+ 

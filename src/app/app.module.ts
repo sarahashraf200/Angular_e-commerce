@@ -19,7 +19,7 @@ import { ProductPageComponent } from './ProductPageComponents/product-page/produ
 import { TabsPanelComponent } from './ProductPageComponents/tabs-panel/tabs-panel.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatTabsModule} from '@angular/material/tabs';
-
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -41,7 +41,8 @@ import {MatTabsModule} from '@angular/material/tabs';
     AppRoutingModule,
     FormsModule,
     BrowserAnimationsModule,
-    MatTabsModule
+    MatTabsModule,
+    ReactiveFormsModule 
 
   ],
   providers: [ProductDataService],

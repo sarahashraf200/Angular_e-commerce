@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormControl, Validators, AbstractControl } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -6,23 +8,53 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  public username = "";
+  /*public username = "";
   public password ="";
   public map = new Map()
   public success_flag = false;
-  public click_flag = false;
+  public click_flag = false;*/
+  public submitted = false
 
 
   constructor() { 
-    this.map.set("one", "first element");
+    /*this.map.set("one", "first element");
     this.map.set("two", "second element");
-    this.map.set("sarah", "123");
+    this.map.set("sarah", "123");*/
   }
+   exform: FormGroup = new FormGroup({
+    //'name' : new FormControl(null, Validators.required),
+    'email' : new FormControl('', [Validators.required, Validators.email]),
+    'password' : new FormControl('', [Validators.required, Validators.minLength(5)])
+  });
+
+  get f(): { [key: string]: AbstractControl}{
+    return this.exform.controls;
+  }
+  clicksub() {
+    console.log(this.exform.value);
+    this.exform.reset();
+  }
+
+  onSubmit(): void {
+    this.submitted = true;
+    if (this.exform.invalid) {
+    console.log("invalid");
+      return;
+    }
+    console.log(JSON.stringify(this.exform.value, null, 2));
+  }
+  onReset(): void {
+    this.submitted = false;
+    this.exform.reset();
+  }
+
+ 
+  
 
   ngOnInit(): void {
   }
 
-onclick(){
+/*onclick(){
   this.click_flag = true;
   this.success_flag = false;
   for (let [key, value] of this.map) {
@@ -38,16 +70,16 @@ onclick(){
       console.log("fail");
      
     }
-
+*/
     
     
 
 }
 
-print(){
+/*print(){
   for (let [key, value] of this.map) {
     console.log(key + " = " + value);
     }
-}
+}*/
 
-}
+
