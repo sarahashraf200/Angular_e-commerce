@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductDataService } from '../../product-data.service' ; 
+import { BehaviorSubject , observable} from 'rxjs';
 
 @Component({
   selector: 'app-product-details',
@@ -7,6 +8,10 @@ import { ProductDataService } from '../../product-data.service' ;
   styleUrls: ['./product-details.component.css']
 })
 export class ProductDetailsComponent implements OnInit {
+
+
+productDetails: any;
+
  name: string = "Lightweight Jacket";
  price : number = 50;
  desc : string = " Nulla eget sem vitae eros pharetra viverra. Nam vitae luctus ligula. Mauris consequat ornare feugiat."
@@ -28,7 +33,7 @@ export class ProductDetailsComponent implements OnInit {
        this.total = this.price;
        this. qt = 1;
      }
-     //this.sum = this.sum + this.price;
+
      var product = {name : this.name , price : this.price , desc : this.desc ,size : this.size_selection , color : this.color_selection,
       qt: this.qt , total: this.total , sum: this.sum}
      this.dservice.setProduct(product);

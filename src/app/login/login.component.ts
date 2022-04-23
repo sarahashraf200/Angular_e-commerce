@@ -8,19 +8,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  /*public username = "";
-  public password ="";
-  public map = new Map()
-  public success_flag = false;
-  public click_flag = false;*/
   public submitted = false
 
 
-  constructor() { 
-    /*this.map.set("one", "first element");
-    this.map.set("two", "second element");
-    this.map.set("sarah", "123");*/
-  }
+  constructor() { }
    exform: FormGroup = new FormGroup({
     //'name' : new FormControl(null, Validators.required),
     'email' : new FormControl('', [Validators.required, Validators.email]),
@@ -55,6 +46,15 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
+
+
+
+
+
+
+
+
 
 /*onclick(){
   this.click_flag = true;
