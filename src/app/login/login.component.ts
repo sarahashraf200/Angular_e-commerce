@@ -24,7 +24,7 @@ export class LoginComponent implements OnInit {
    exform: FormGroup = new FormGroup({
     //'name' : new FormControl(null, Validators.required),
     'email' : new FormControl('', [Validators.required, Validators.email]),
-    'password' : new FormControl('', [Validators.required, Validators.minLength(5)])
+    'password' : new FormControl('', [Validators.required, Validators.minLength(3)])
   });
 
   get f(): { [key: string]: AbstractControl}{
@@ -36,12 +36,14 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit(): void {
-    this.submitted = true;
-    if (this.exform.invalid) {
+  this.submitted = true;
+    /*if (this.exform.invalid) {
     console.log("invalid");
       return;
-    }
-    console.log(JSON.stringify(this.exform.value, null, 2));
+    }*/
+    console.log("ay 7aga?")
+    console.log(JSON.stringify(this.exform.value.email, null, 2));
+    console.log(this.exform.value.email);
   }
   onReset(): void {
     this.submitted = false;
