@@ -203,13 +203,16 @@ input:focus {
 }*/
 .containter {
   width : 50%;
+  
+
 
 }
+
 .card {
   height: 60vh;
   margin: 25px;
   padding: 25px;
-  float: left;
+
 }
 
 .center img {
