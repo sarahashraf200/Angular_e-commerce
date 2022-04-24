@@ -21,6 +21,16 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatTabsModule} from '@angular/material/tabs';
 import { ReactiveFormsModule } from '@angular/forms';
 
+import { AngularFireModule} from '@angular/fire/compat'
+import { AngularFirestoreModule } from '@angular/fire//compat/firestore';
+import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
+import { environment } from 'src/environments/environment';
+import { HomePageComponent } from './home-page/home-page.component';
+
+
+
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,7 +44,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     AdditionalInfoComponent,
     DescriptionComponent,
     ProductPageComponent,
-    TabsPanelComponent
+    TabsPanelComponent,
+    HomePageComponent
   ],
   imports: [
     BrowserModule,
@@ -42,8 +53,12 @@ import { ReactiveFormsModule } from '@angular/forms';
     FormsModule,
     BrowserAnimationsModule,
     MatTabsModule,
-    ReactiveFormsModule 
-
+    ReactiveFormsModule,
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    AngularFirestoreModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    
+         
   ],
   providers: [ProductDataService],
   bootstrap: [AppComponent]
