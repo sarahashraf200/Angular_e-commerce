@@ -8,9 +8,7 @@ import { ProductResolverResolver } from './Resolvers/product-resolver.resolver';
 
 const routes: Routes = [
   {path:'cart',component: CartComponent},
-  {path:'product-page', component: ProductPageComponent,resolve:{
-    productInfo: ProductResolverResolver
-  }},
+  {path:'product-page/:id', component: ProductPageComponent},
   {path:'home', component: HomePageComponent},
   { path: '', redirectTo: '/home',  pathMatch: 'full' }
 ];

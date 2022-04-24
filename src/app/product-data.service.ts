@@ -11,7 +11,8 @@ export class ProductDataService {
 
   public cartItemList: any = []
   public productList = new BehaviorSubject<any>([]);
-  productInfo: any
+
+  public productInfo = new BehaviorSubject<any>([]);
 
 
 
@@ -29,8 +30,8 @@ export class ProductDataService {
   }
 
   //from home page set the selected product to send the information in navigation between routes
-  setSelectedProduct(selectedProduct: ProductInfo ) {
-    this.productInfo = selectedProduct
+  setSelectedProduct(itemId:string) {
+    this.productInfo.next(itemId);
   }
 
   constructor() {
