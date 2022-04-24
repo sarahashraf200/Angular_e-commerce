@@ -1,41 +1,49 @@
 import { Injectable } from '@angular/core';
 import { ProductDetailsComponent } from './ProductPageComponents/product-details/product-details.component';
-import { BehaviorSubject, Observable } from 'rxjs';
-import { ProductInfo } from './ProductPageComponents/CRUD/ProductInfo';
-
-
+import { BehaviorSubject , Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
 export class ProductDataService {
+  
+  public cartItemList : any =[]
+  public productList = new BehaviorSubject <any>([]);
+ public productInfo = new BehaviorSubject<any>([]);
+  
 
-  public cartItemList: any = []
-  public productList = new BehaviorSubject<any>([]);
-
-  public productInfo = new BehaviorSubject<any>([]);
-
-
-
-  getProducts() {
+  getProducts(){
     return this.productList.asObservable();
+  } 
+  setProduct(product : any){
+   this.cartItemList.push(product);
+   this.productList.next(product);
   }
-  setProduct(product: any) {
-    this.cartItemList.push(product);
-    this.productList.next(product);
-  }
-  addtoCart(product: any) {
+  addtoCart(product : any){
     this.cartItemList.push(product);
     this.productList.next(this.cartItemList);
-    ///  console.log(this.cartItemList)
+    console.log(this.cartItemList)
+  }
+  removeAllCart(){
+    this.cartItemList = []
+    this.productList.next(this.cartItemList);
+  }
+  removeCartItem(product: any){
+    this.cartItemList.map((a:any, index:any)=>{
+      if(product.id=== a.id){
+        this.cartItemList.splice(index,1);
+      }
+    })
+    this.productList.next(this.cartItemList);
   }
 
+  constructor() 
+  { 
+   
+   
+  }
+  
   //from home page set the selected product to send the information in navigation between routes
   setSelectedProduct(itemId:string) {
     this.productInfo.next(itemId);
-  }
-
-  constructor() {
-
-
   }
 }
