@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ProductCRUDService } from '../CRUD/product-crud.service';
+import {
+  ActivatedRoute
+} from '@angular/router';
 
 @Component({
   selector: 'app-product-page',
@@ -9,11 +11,10 @@ import { ProductCRUDService } from '../CRUD/product-crud.service';
 export class ProductPageComponent implements OnInit {
 
 
-  constructor(private productCrudApi: ProductCRUDService) { }
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.productCrudApi.GetProduct("Jacket").valueChanges().subscribe(details => {
-      console.log(details["price"])});   
+
   }
 
 
