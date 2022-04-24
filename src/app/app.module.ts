@@ -25,6 +25,7 @@ import { AngularFireModule} from '@angular/fire/compat'
 import { AngularFirestoreModule } from '@angular/fire//compat/firestore';
 import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { environment } from 'src/environments/environment';
+import { HomePageComponent } from './home-page/home-page.component';
 
 
 
@@ -43,7 +44,8 @@ import { environment } from 'src/environments/environment';
     AdditionalInfoComponent,
     DescriptionComponent,
     ProductPageComponent,
-    TabsPanelComponent
+    TabsPanelComponent,
+    HomePageComponent
   ],
   imports: [
     BrowserModule,
