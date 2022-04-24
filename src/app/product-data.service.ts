@@ -21,7 +21,19 @@ export class ProductDataService {
   addtoCart(product : any){
     this.cartItemList.push(product);
     this.productList.next(this.cartItemList);
-  ///  console.log(this.cartItemList)
+    console.log(this.cartItemList)
+  }
+  removeAllCart(){
+    this.cartItemList = []
+    this.productList.next(this.cartItemList);
+  }
+  removeCartItem(product: any){
+    this.cartItemList.map((a:any, index:any)=>{
+      if(product.id=== a.id){
+        this.cartItemList.splice(index,1);
+      }
+    })
+    this.productList.next(this.cartItemList);
   }
 
   constructor() 

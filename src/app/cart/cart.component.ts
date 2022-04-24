@@ -36,17 +36,31 @@ export class CartComponent implements OnInit {
     //   qt: res.qt }
     if (res.length !=0){
       this.products.push(res)
-      console.log(this.products)
+      console.log("msh zero")
       this.products.forEach((item : any) => {
         this.sum += item.price;
       
       });
-     console.log(this.sum);
+    // console.log(this.sum);
     }
+    else {
+      this.products = [];
+    }
+
+
    })
    
  
  
+  }
+
+  emptycart(){
+    this.cartService.removeAllCart();
+
+  }
+
+  removeItem(item: any){
+    this.cartService.removeCartItem(item);
   }
   
   
