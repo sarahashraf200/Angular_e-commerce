@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators, AbstractControl } from '@angular/forms';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AuthService } from 'src/app/shared/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -9,13 +10,14 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 })
 export class LoginComponent implements OnInit {
   public submitted = false
+  email = "";
+  password = "";
 
-
-  constructor() { }
+  constructor(private auth : AuthService) { }
    exform: FormGroup = new FormGroup({
     //'name' : new FormControl(null, Validators.required),
-    'email' : new FormControl('', [Validators.required, Validators.email]),
-    'password' : new FormControl('', [Validators.required, Validators.minLength(3)])
+    'email' : new FormControl (this.email, [Validators.required, Validators.email]) ,
+    'password' : new FormControl(this.password, [Validators.required, Validators.minLength(6)])
   });
 
   get f(): { [key: string]: AbstractControl}{
@@ -26,15 +28,20 @@ export class LoginComponent implements OnInit {
     this.exform.reset();
   }
 
-  onSubmit(): void {
+  login(): void {
   this.submitted = true;
     /*if (this.exform.invalid) {
     console.log("invalid");
       return;
     }*/
+
     console.log("ay 7aga?")
-    console.log(JSON.stringify(this.exform.value.email, null, 2));
+    //console.log(JSON.stringify(this.exform.value.email, null, 2));
     console.log(this.exform.value.email);
+    this.auth.login(this.email,this.password);
+    
+    //this.email = '';
+    //this.password = '';
   }
   onReset(): void {
     this.submitted = false;

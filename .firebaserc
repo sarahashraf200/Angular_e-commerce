@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "hci-web-app": {
+      "hosting": {
+        "my-app": [
+          "hci-web-app"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "hci-web-app"
+  }
+}

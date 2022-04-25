@@ -1,4 +1,4 @@
-<h2> login </h2>
+<!--<h2> login </h2>
 <form [formGroup]="exform" (ngSubmit)="onSubmit()">
 <div class="form-group">
      <label class="col-form-label">Email:</label>
@@ -20,4 +20,57 @@
 </div>
    </div>
    <button (click)="clicksub()"  [disabled]="exform.invalid" type="button" class="btn btn-primary">Login</button>
-</form>
+</form>-->
+<div class="container-fluid">
+  <div class="row mt-5">
+      <div class="col"></div>
+      <div class="col-4">
+          <div class="card shadow">
+              <div class="card-body">
+                  <form  [formGroup]="exform" (ngSubmit)="login()">
+                      <div class="mb-3">
+                          <h4 class="text-dark text-muted">Login</h4>
+                      </div>
+                      <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Email</label>
+                        <input formControlName="email" type="text" class="form-control" id ="email" [ngClass]="{ 'is-invalid': submitted && f['email'].errors }" [(ngModel)]="email">
+                        <div *ngIf="f['email'].touched && f['email'].invalid" class="alert alert-danger">
+                          <div *ngIf="f['email'].errors && f['email'].errors['required']">Email is required.</div>
+                          <div *ngIf="f['email'].errors && f['email'].errors['email']">Please, enter valid email address.</div>
+                      </div>
+                      </div>
+                      <div class="mb-3">
+                        <label for="exampleInputPassword1" class="form-label">Password</label>
+                        <input formControlName="password" type="password" class="form-control"  [ngClass]="{ 'is-invalid': submitted && f['password'].errors }" [(ngModel)]="password" >
+
+                        <div *ngIf="f['password'].touched && f['password'].invalid" class="alert alert-danger">
+                          <div *ngIf="f['password'].errors && f['password'].errors['required']">password is required.</div>
+                          <div *ngIf="f['password'].errors && f['password'].errors['minlength']">Password minimum length is 3 characters</div>
+                    
+                </div>
+                      </div>
+                      <button type="button"   [disabled]="exform.invalid" class="btn btn-info" (click)="login()">Login</button>
+                      <div class="row">
+                          <div class="col-md-6">
+                              <a href="/register" style="text-decoration: none;">Need Account ? <span class="text-danger">Register</span></a>
+                          </div>
+                          <div class="col-md-6">
+                              <a href="/forgot-password" class="text-dark" style="text-decoration: none;"> Forgot Password ? </a>
+                          </div>
+                      </div>
+                      <div class="row mt-2">
+                        <!--- <a (click)="signInWithGoogle()" style="text-decoration: none;cursor: pointer;">
+                              <div class="card shadow text-center">
+                                  <div class="card-body">
+                                      <img src="../../../assets/icons8-google-48.png" alt="" height="24px" width="24px"> Sign In with Google
+                                  </div>
+                              </div>
+                          </a>-->
+                      </div>
+                  </form>
+              </div>
+          </div>
+      </div>
+      <div class="col"></div>
+  </div>
+</div>

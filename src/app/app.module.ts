@@ -26,7 +26,11 @@ import { AngularFirestoreModule } from '@angular/fire//compat/firestore';
 import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { environment } from 'src/environments/environment';
 import { HomePageComponent } from './home-page/home-page.component';
-
+import { provideAuth,getAuth } from '@angular/fire/auth';
+import { provideDatabase,getDatabase } from '@angular/fire/database';
+import { provideFirestore,getFirestore } from '@angular/fire/firestore';
+import { RegisterComponent } from './register/register.component';
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 
 
 
@@ -45,7 +49,8 @@ import { HomePageComponent } from './home-page/home-page.component';
     DescriptionComponent,
     ProductPageComponent,
     TabsPanelComponent,
-    HomePageComponent
+    HomePageComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
@@ -56,7 +61,11 @@ import { HomePageComponent } from './home-page/home-page.component';
     ReactiveFormsModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     AngularFirestoreModule,
+    AngularFireAuthModule,
     AngularFireModule.initializeApp(environment.firebase),
+    provideAuth(() => getAuth()),
+    provideDatabase(() => getDatabase()),
+    provideFirestore(() => getFirestore()),
     
          
   ],
