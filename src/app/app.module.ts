@@ -52,7 +52,8 @@ import { AngularFireAuthModule } from '@angular/fire/compat/auth';
     ProductPageComponent,
     TabsPanelComponent,
     HomePageComponent,
-    RegisterComponent
+    RegisterComponent,
+    AddProductComponent
   ],
   imports: [
     BrowserModule,
