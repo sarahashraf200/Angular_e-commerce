@@ -27,7 +27,7 @@ export class ProductDetailsComponent implements OnInit {
   sum: number = 0;
 
   constructor(public dservice: ProductDataService, private route: ActivatedRoute,
-    private productCrudApi: ProductCRUDService,) { }
+    private productCrudApi: ProductCRUDService) { }
   ngOnInit(): void {
     this.dservice.productInfo.subscribe((data) => {
     this.productCrudApi.GetProduct(data).valueChanges().subscribe(data=>{
@@ -40,7 +40,6 @@ export class ProductDetailsComponent implements OnInit {
       });
     });
 }
-
 
 
 Submit() {
@@ -59,6 +58,5 @@ Submit() {
   this.dservice.setProduct(product);
 
 }
-
 
 }

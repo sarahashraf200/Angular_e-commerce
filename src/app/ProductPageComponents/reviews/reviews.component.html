@@ -1,45 +1,42 @@
 <div>
 
-    <div  class="user-card" >
-        <div class="card" style="width: 50rem;">
-            <div class="card-body">
-              <h5 class="card-title username">Alex</h5>
-              <h6 class="card-subtitle mb-2 text-muted">18-5-2022</h6>
-              <p class="card-text review-tex">Quod autem in homine praestantissimum atque optimum est, id deseruit. Apud ceteros autem philosophos.</p>
+    <div *ngFor="let item of reviewsAdded">
+        <div class="user-card">
+            <div class="card" style="width: 50rem;">
+                <div class="card-body">
+                    <h5 class="card-title username">{{item.name}}</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">{{currentDate | date:'yyyy-MM-dd'}}</h6>
+                    <p class="card-text review-tex">{{item.review}}</p>
+                </div>
             </div>
-          </div>
+        </div>
     </div>
 
 
 
-<!-- <form [formGroup]="checkoutForm" (ngSubmit)="onSubmit()"> -->
-<form>
-
+    <!-- <form [formGroup]="checkoutForm" (ngSubmit)="onSubmit()"> -->
     <div class="container">
         <div>
             <label for="Review">
                 Review
             </label>
-            <input  class="form-control" id="Review" type="text">
+            <textarea class="form-control" id="Review" type="text" rows="3" [(ngModel)]="reviewText"></textarea>
         </div>
         <div class="row">
             <div class="col-sm">
                 <label for="Name">
                     Name
                 </label>
-                <input class="form-control" id="name" type="text">
+                <input class="form-control" id="name" type="text" [(ngModel)]="nameText">
             </div>
             <div class="col-sm">
                 <label for="email">
                     Email
                 </label>
-                <input  class="form-control" id="email" type="text">
+                <input class="form-control" id="email" type="text" [(ngModel)]="emailText">
             </div>
         </div>
     </div>
     <div class="btn-div">
-        <button class="btn btn-light custom-btn" type="submit">Submit</button>
+        <button class="btn btn-light custom-btn" (click)="onSubmit()">Submit</button>
     </div>
-    
-
-</form>
