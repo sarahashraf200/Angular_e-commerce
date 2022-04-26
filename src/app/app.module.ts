@@ -20,6 +20,7 @@ import { TabsPanelComponent } from './ProductPageComponents/tabs-panel/tabs-pane
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatTabsModule} from '@angular/material/tabs';
 import { ReactiveFormsModule } from '@angular/forms';
+import { AddProductComponent } from './add-product/add-product.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     AdditionalInfoComponent,
     DescriptionComponent,
     ProductPageComponent,
-    TabsPanelComponent
+    TabsPanelComponent,
+    AddProductComponent
   ],
   imports: [
     BrowserModule,
