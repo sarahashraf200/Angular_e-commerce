@@ -1,8 +1,30 @@
+.form{
+margin-left: 10%;
+margin-top: 2%;
+margin-bottom: 2%;
+
+font-size: medium;
+}
+
 .submit{
     width: 550px;
     height: 50px;
-}
+    margin-left: 20%;}
 
 .desfield * {
     vertical-align: top;
   }
+
+.formcontrol{
+    width: 20px;
+}
+.custom-btn {
+    background-color: rgb(176, 146, 220);
+    width: 40%;
+    height: 50px;
+    border-radius: 50px;
+    color: white;
+    padding: 3%;
+    margin-left: 20%;
+    width: 30%;
+}

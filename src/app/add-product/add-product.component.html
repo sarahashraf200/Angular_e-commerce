@@ -1,20 +1,19 @@
-<p>add-product works!</p>
-<form>
-    <label for="ProductTitle">Product Title:  </label>
+<form class="form">
+    <label for="ProductTitle">Product Title:</label>
     <input type="text" id="ProductTitle" name="ProductTitle"><br> <br><br> <br>
 
-    <label for="price">Price:  </label>
+    <label for="price">Price:</label>
     <input type="text" id="price" name="price" placeholder="ex: $25"><br> <br><br> <br>
 
     <label for="qty">Qty:  </label>
     <input type="text" id="qty" name="qty"><br> <br><br> <br>
 
-    <label for="category">Category:  </label>
+    <label for="category">Category:</label>
     <input type="checkbox" id="men" name="men">
-    <label for="Men's clothing">Men's clothing    </label>
+    <label for="Men's clothing">Men's clothing</label>
 
     <input type="checkbox" id="women" name="women">
-    <label for="Women's clothing">Women's clothing   </label>
+    <label for="Women's clothing">Women's clothing</label>
 
     <input type="checkbox" id="Children" name="Children">
     <label for="Children's clothing">Children's clothing</label>
@@ -24,30 +23,30 @@
       <br> <br><br> <br>
     
 
-    <label for="Image">Image:  </label>
+    <label for="Image">Image:</label>
     <input type="button" value="choose file" ><br> <br><br> <br>
 
     <p class="desfield">
-    <label for="Description">Description:  </label>
+    <label for="Description">Description:</label>
     <textarea id="Description" name="Description" rows="6" cols="50" required="yes" 
     placeholder="Write product description"></textarea>
     </p>
     <br> <br>
     
     <div id="dropdownlist">
-        <label for="subcategory">subcategory:  </label>
+        <label for="subcategory">subcategory:</label>
         <select formControlName="categoryList" class="form-control">
             <option disabled>Select category</option>
             <option>Choose category</option>
             <option *ngFor="let category of one">{{one}}</option>
             <option *ngFor="let category of two">{{two}}</option>
-
-
         </select>
   </div>
     <br> <br><br> <br>
 
-    <input type="submit" class="submit">
+    
+    <button class="custom-btn" type="submit">Submit</button>
+
 
     
   </form>
