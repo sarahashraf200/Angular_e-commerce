@@ -1,41 +1,27 @@
 <p>add-product works!</p>
-<form>
-    <label for="ProductTitle">Product Title:  </label>
-    <input type="text" id="ProductTitle" name="ProductTitle"><br> <br><br> <br>
+<form >
 
-    <label for="price">Price:  </label>
-    <input type="text" id="price" name="price" placeholder="ex: $25"><br> <br><br> <br>
+    <label for="ProductTitle">Product Title:</label>
+    <input ngModel="name" type="text" id="ProductTitle" name="ProductTitle" required><br> <br><br> <br>
+    {{name}}
 
-    <label for="qty">Qty:  </label>
-    <input type="text" id="qty" name="qty"><br> <br><br> <br>
+    <label for="price">Price:</label>
+    <input ngModel="price" type="text" id="price" name="price" placeholder="ex: $25" required><br> <br><br> <br>  
+    {{price}}
+    <label for="Image">Image:</label>
+    <input  type="button" value="choose file" >
 
-    <label for="category">Category:  </label>
-    <input type="checkbox" id="men" name="men">
-    <label for="Men's clothing">Men's clothing    </label>
-
-    <input type="checkbox" id="women" name="women">
-    <label for="Women's clothing">Women's clothing   </label>
-
-    <input type="checkbox" id="Children" name="Children">
-    <label for="Children's clothing">Children's clothing</label>
-    
-    
-      
-      <br> <br><br> <br>
-    
-
-    <label for="Image">Image:  </label>
-    <input type="button" value="choose file" ><br> <br><br> <br>
-
+    <br> <br><br> <br>
     <p class="desfield">
-    <label for="Description">Description:  </label>
-    <textarea id="Description" name="Description" rows="6" cols="50" required="yes" 
+    <label for="Description">Description:</label>
+    <textarea  ngModel="desc" id="Description" name="Description" rows="6" cols="50" required="yes" 
     placeholder="Write product description"></textarea>
+    {{desc}}
     </p>
     <br> <br>
     
     <div id="dropdownlist">
-        <label for="subcategory">subcategory:  </label>
+        <label for="subcategory">subcategory:</label>
         <select formControlName="categoryList" class="form-control">
             <option disabled>Select category</option>
             <option>Choose category</option>
@@ -45,9 +31,10 @@
 
         </select>
   </div>
+
     <br> <br><br> <br>
 
-    <input type="submit" class="submit">
+    <button (click)="onClick()"  class="custom-btn" type="submit">Submit</button>
 
     
   </form>
