@@ -7,7 +7,7 @@
 
     <label for="price">Price:</label>
     <input ngModel="price" type="text" id="price" name="price" placeholder="ex: $25" required><br> <br><br> <br>  
-    {{price}}
+    ${{price}}
     <label for="Image">Image:</label>
     <input  type="button" value="choose file" >
 
@@ -34,7 +34,7 @@
 
     <br> <br><br> <br>
 
-    <button (click)="onClick()"  class="custom-btn" type="submit">Submit</button>
+    <button (click)="onSubmit()"  class="custom-btn" type="submit">Submit</button>
 
     
   </form>

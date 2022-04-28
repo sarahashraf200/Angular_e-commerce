@@ -14,12 +14,13 @@ export class AddProductComponent implements OnInit {
   two=['shirts']
 
 
-  price=""
-  name=""
-  desc=""
-  img= ""
+  
+  name :string =""
+  price: string =""
+  desc: string=""
+  img: string= ""
 
-    constructor(private productCrudApi: ProductCRUDService,  public productService: ProductDataService) {
+    constructor(private productCrudApi: ProductCRUDService) {
       
      }
  
@@ -28,13 +29,12 @@ export class AddProductComponent implements OnInit {
      };
 
 onSubmit(){
-    this.productCrudApi.AddProduct(data).valueChanges().subscribe(data=>{
-        this.name = data['name']
-        this.price = data['price']
-        this.desc = data['desc']
-        this.img = data['img']   
-        })
-    ;
+  var ProductData = {'name': this.name ,'price': +this.price ,  'desc': this.desc, 'img': this.img}
+    this.productCrudApi.AddProduct(ProductData)
+    this.price=""
+    this.name=""
+    this.desc=""
+    this.img= ""
 }
 
 }
