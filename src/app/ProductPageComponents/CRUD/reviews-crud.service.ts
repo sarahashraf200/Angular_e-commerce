@@ -32,14 +32,9 @@ export class ReviewCRUDService {
     this.reviewRef = this.db.object('Reviews/Jacket/' + id);
     return this.reviewRef;
   }
-  // Fetch Products List
+  // Fetch Review List
   GetReviewsList(id: string) {
     this.reviewsRef = this.db.list('Reviews/'+ id);
     return this.reviewsRef;
   }
-//   // Delete Product Object
-//   DeleteProduct(id: string) {
-//     this.productRef = this.db.object('Products/' + id);
-//     this.productRef.remove();
-//   }
 }

@@ -15,10 +15,12 @@ export class ReviewsComponent implements OnInit {
   emailText:string=""
   reviewsAdded: any =[]
   currentDate:any
+  currentProduct: string = ""
   constructor(private reviewsCrudApi: ReviewCRUDService, public productService: ProductDataService) { }
 
   ngOnInit(): void {
     this.productService.productInfo.subscribe((data) => {
+      this.currentProduct = data
       this.reviewsCrudApi.GetReviewsList(data).valueChanges().subscribe(data=>{
           this.reviewsAdded = []
           data.forEach(element => {
@@ -33,8 +35,8 @@ export class ReviewsComponent implements OnInit {
   onSubmit(){
     this.currentDate = new Date();
     var reviewDetails = {'review': this.reviewText,'name': this.nameText,'email': this.emailText}
-
-    this.reviewsCrudApi.AddReview(reviewDetails,'Jacket')
+    console.log(this.currentProduct)
+    this.reviewsCrudApi.AddReview(reviewDetails,this.currentProduct)
 
     this.reviewText=""
     this.nameText=""

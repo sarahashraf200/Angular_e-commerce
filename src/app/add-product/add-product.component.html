@@ -2,21 +2,18 @@
 <form >
 
     <label for="ProductTitle">Product Title:</label>
-    <input ngModel="name" type="text" id="ProductTitle" name="ProductTitle" required><br> <br><br> <br>
-    {{name}}
+    <input [(ngModel)]="name" type="text" id="ProductTitle" name="ProductTitle" required><br> <br><br> <br>
 
     <label for="price">Price:</label>
-    <input ngModel="price" type="text" id="price" name="price" placeholder="ex: $25" required><br> <br><br> <br>  
-    ${{price}}
+    <input [(ngModel)]="price" type="text" id="price" name="price" placeholder="ex: $25" required><br> <br><br> <br>  
     <label for="Image">Image:</label>
-    <input  type="button" value="choose file" >
+    <input [(ngModel)]="img" type="text" id="img" name="img" required><br> <br><br> <br>
 
     <br> <br><br> <br>
     <p class="desfield">
     <label for="Description">Description:</label>
-    <textarea  ngModel="desc" id="Description" name="Description" rows="6" cols="50" required="yes" 
+    <textarea  [(ngModel)]="desc" id="Description" name="Description" rows="6" cols="50" required="yes" 
     placeholder="Write product description"></textarea>
-    {{desc}}
     </p>
     <br> <br>
     

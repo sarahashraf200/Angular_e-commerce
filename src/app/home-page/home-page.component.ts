@@ -12,7 +12,7 @@ import { ProductCRUDService } from '../ProductPageComponents/CRUD/product-crud.s
 export class HomePageComponent implements OnInit {
   Products :Array<any> = [];
   selectedProduct : any
-  itemId:string = "Jacket"
+  itemId:string = ""
   constructor(private dataService: ProductDataService,
     private route: ActivatedRoute , private auth : AuthService, private crud: ProductCRUDService) { }
 
@@ -23,18 +23,26 @@ export class HomePageComponent implements OnInit {
     this.auth.logout();
   }
   getProducts(){
-    this.crud.GetProductsList().valueChanges().subscribe(data => {
-      if (data != undefined) {
-        this.Products = data;
-        // console.log(this.Products);
-        console.log(this.Products[0].desc);
-        // console.log(this.Products[0][0]);
+    // this.crud.GetProductsList().valueChanges().subscribe(data => {
+    //   if (data != undefined) {
+    //     this.Products = data;
+    //     // console.log(this.Products);
+    //     console.log(Object.keys(data));
+    //     // console.log(this.Products[0][0]);
         
-      }
-    }
-    );
+    //   }
+    // }
+    // );
+
+    this.crud.GetProductsList().snapshotChanges()
+    .subscribe(actions => {
+      actions.forEach(action => {
+        var product = action.payload.val()
+        product.id = action.key
+      this.Products.push(product)
+      });
+    });
+
   }
-
-
 
 }
