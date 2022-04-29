@@ -1,37 +1,31 @@
-<p>add-product works!</p>
-<form >
+<form class="form-container" >
 
-    <label for="ProductTitle">Product Title:</label>
-    <input [(ngModel)]="name" type="text" id="ProductTitle" name="ProductTitle" required><br> <br><br> <br>
+    <label class="label-style" for="ProductTitle">Product Title:</label>
+    <input class="form-control" [(ngModel)]="name" type="text" id="ProductTitle" name="ProductTitle" required><br> 
 
-    <label for="price">Price:</label>
-    <input [(ngModel)]="price" type="text" id="price" name="price" placeholder="ex: $25" required><br> <br><br> <br>  
-    <label for="Image">Image:</label>
-    <input [(ngModel)]="img" type="text" id="img" name="img" required><br> <br><br> <br>
+    <label class="label-style" for="price">Price:</label>
+    <input class="form-control" [(ngModel)]="price" type="text" id="price" name="price" placeholder="ex: $25" required><br>
 
-    <br> <br><br> <br>
-    <p class="desfield">
-    <label for="Description">Description:</label>
-    <textarea  [(ngModel)]="desc" id="Description" name="Description" rows="6" cols="50" required="yes" 
+    <label class="label-style" for="Image">Image:</label>
+    <input class="form-control" [(ngModel)]="img" type="text" id="img" name="img" required><br> 
+
+
+    <label class="label-style" for="Description">Description:</label>
+    <textarea class="form-control" [(ngModel)]="desc" id="Description" name="Description" rows="6" cols="50" required="yes" 
     placeholder="Write product description"></textarea>
-    </p>
-    <br> <br>
-    
+
+    <br>
     <div id="dropdownlist">
-        <label for="subcategory">subcategory:</label>
+        <label class="label-style" for="subcategory">subcategory:</label>
         <select formControlName="categoryList" class="form-control">
             <option disabled>Select category</option>
             <option>Choose category</option>
             <option *ngFor="let category of one">{{one}}</option>
             <option *ngFor="let category of two">{{two}}</option>
-
-
         </select>
   </div>
+  <br>
+  <button (click)="onSubmit()"  class="btn btn-secondary custom-btn" type="submit">Submit</button>
 
-    <br> <br><br> <br>
-
-    <button (click)="onSubmit()"  class="custom-btn" type="submit">Submit</button>
-
-    
   </form>
+
