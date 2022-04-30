@@ -1,15 +1,61 @@
 <!-- carousel -->
 <div>
-Carousel
+    Carousel
 </div>
 <!-- end carousel -->
 
-<div>
-    Man  Women  Accessories
+
+
+<div id="categories">
+    <!-- women -->
+    <div id="women" class="category">
+        <div>
+            <p id="" class="div_txt">
+                <span>Women</span>
+            </p>
+
+            <p id="spring_txt">
+                <span>spring 2022</span>
+            </p>
+            <p class="shop_now">
+                shop now
+            </p>
+        </div>
+    </div>
+    <!-- women hidden div -->
+
+    <div id="men" class="category">
+        <div>
+            <p id="" class="div_txt">
+                <span>Men</span>
+            </p>
+            
+            <p id="spring_txt">
+                <span>spring 2022</span>
+            </p>
+            <p class="shop_now">
+                shop now
+            </p>
+        </div>
+    </div>
+    <div id="Accessories" class="category">
+        <div>
+            <p id="" class="div_txt">
+                <span>Accessories</span>
+            </p>
+            
+            <p id="spring_txt">
+                <span>spring 2022</span>
+            </p>
+            <p class="shop_now">
+                shop now
+            </p>
+        </div>
+    </div>
 </div>
 
-<div>
-    Show Products 
+<div class="table">
+    Show Products
     <table class="table table-responsive">
         <thead>
             <tr>
@@ -33,7 +79,7 @@ Carousel
                 <td style="width: 12%;">{{item.qt}}</td>
                 <td style="width: 12%;">{{item.total}}</td>
                 <td>
-                    <button routerLink="/product-page/{{item.id}}" class="btn btn-primary" >GO TO PRODUCT</button>
+                    <button routerLink="/product-page/{{item.id}}" class="btn btn-primary">GO TO PRODUCT</button>
                 </td>
             </tr>
 
@@ -41,4 +87,4 @@ Carousel
     </table>
 </div>
 
-<button (click) = "logout()"> logout</button>
+<button (click)="logout()"> logout</button>
