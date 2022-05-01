@@ -53,7 +53,7 @@
         </div>
     </div>
 </div>
-
+<!-- 
 <div class="table">
     Show Products
     <table class="table table-responsive">
@@ -85,6 +85,27 @@
 
         </tbody>
     </table>
-</div>
+</div> -->
+<div>
 
+    <div>
+        <p class="PRODUCT_OVERVIEW">PRODUCT OVERVIEW</p>
+<!-- add cat var and assi it in onclick fun here  -->
+        <ul class="categories_ul">
+            <li class="categories_li"><a href="#home">All Products</a></li>
+            <li class="categories_li"><a href="#news">Women</a></li>
+            <li class="categories_li"><a href="#contact">Men</a></li>
+            <li class="categories_li"><a href="#about">Bag</a></li>
+            <li class="categories_li"><a href="#about">Shoes</a></li>
+            <li class="categories_li"><a href="#about">Watches</a></li>
+
+          </ul>
+          
+    </div>
+    <div class="products"   >
+        <div class="product" routerLink="/product-page/{{item.id}}" *ngFor="let item of Products; let i = index" style="background-image: url('/assets/product-details/{{item.img}}.jpg')">
+
+        </div>
+    </div>
+</div>
 <button (click)="logout()"> logout</button>
