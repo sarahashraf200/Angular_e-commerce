@@ -92,20 +92,26 @@
         <p class="PRODUCT_OVERVIEW">PRODUCT OVERVIEW</p>
 <!-- add cat var and assi it in onclick fun here  -->
         <ul class="categories_ul">
-            <li class="categories_li"><a href="#home">All Products</a></li>
-            <li class="categories_li"><a href="#news">Women</a></li>
-            <li class="categories_li"><a href="#contact">Men</a></li>
-            <li class="categories_li"><a href="#about">Bag</a></li>
-            <li class="categories_li"><a href="#about">Shoes</a></li>
-            <li class="categories_li"><a href="#about">Watches</a></li>
+            <li [ngClass]="category=== 'all_products' ? 'active' : 'categories_li'" ><a (click)="setcategory('all_products',$event);">All Products</a></li>
+            <li [ngClass]="category=== 'women' ? 'active' : 'categories_li'" ><a (click)="setcategory('women',$event);" >Women</a></li>
+            <li [ngClass]="category=== 'Men' ? 'active' : 'categories_li'" ><a (click)="setcategory('Men',$event);">Men</a></li>
+            <li [ngClass]="category=== 'Bag' ? 'active' : 'categories_li'" ><a (click)="setcategory('Bag',$event);">Bag</a></li>
+            <li [ngClass]="category=== 'Shoes' ? 'active' : 'categories_li'"><a (click)="setcategory('Shoes',$event);">Shoes</a></li>
+            <li [ngClass]="category=== 'Watches' ? 'active' : 'categories_li'"><a (click)="setcategory('Watches',$event);">Watches</a></li>
 
           </ul>
           
     </div>
     <div class="products"   >
-        <div class="product" routerLink="/product-page/{{item.id}}" *ngFor="let item of Products; let i = index" style="background-image: url('/assets/product-details/{{item.img}}.jpg')">
+     
+        <!-- <div class="product" routerLink="/product-page/{{item.id}}" *ngFor="let item of Products; let i = index" style="background-image: url('/assets/product-details/{{item.img}}.jpg')">
+
+        </div> -->
+        <div class="product" routerLink="/product-page/{{item.id}}" *ngFor="let item of filter(Products); let i = index" style="background-image: url('/assets/product-details/{{item.img}}.jpg')">
 
         </div>
+
+
     </div>
 </div>
 <button (click)="logout()"> logout</button>
