@@ -37,6 +37,7 @@ import { RegisterComponent } from './register/register.component';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { RelatedProductsComponent } from './ProductPageComponents/related-products/related-products.component';
 import { CarouselProductDetailsComponent } from './ProductPageComponents/carousel-product-details/carousel-product-details.component';
+import { SearchPageComponent } from './search-page/search-page.component';
 
 
 
@@ -59,6 +60,7 @@ import { CarouselProductDetailsComponent } from './ProductPageComponents/carouse
     AddProductComponent,
     RelatedProductsComponent,
     CarouselProductDetailsComponent,
+    SearchPageComponent,
   ],
   imports: [
     BrowserModule,

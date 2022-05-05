@@ -57,10 +57,10 @@ export class HomePageComponent implements OnInit {
   }
   filter(itemList: any[]): any[] {
     
-    console.log((this.category));
+    // console.log((this.category));
     
     if(this.category=="all_products"){
-    console.log(this.category);
+    // console.log(this.category);
 
       return itemList;
     }
