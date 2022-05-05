@@ -1,0 +1,37 @@
+<div class="seperator"></div>
+<h1 class="title">Related Products</h1>
+<div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
+<div class="wrapper products-container">
+    <owl-carousel-o [options]="customOptions" #owlCar>
+      <ng-container *ngFor="let slide of images">
+        <ng-template carouselSlide>
+          <img style="height: 390px; width:300px" [src]="slide.path" [alt]="slide.id"[title]="slide.title">
+          <div class="container info-container">
+            <div class="row">
+              <div class="col-sm">
+                <p>Shirt</p>
+              </div>
+              <div class="col-sm">
+                <i class="zmdi zmdi-favorite"></i>
+              </div>
+              <p>price: 120$</p>
+            </div>
+          </div>
+          
+         
+
+        </ng-template>
+      </ng-container>
+    </owl-carousel-o>
+  </div>
+
+  <a class="carousel-control-prev">
+    <button role="presentation" class="owl-prev carousel-control-prev-icon" (click)="owlCar.prev()"></button>
+  </a>
+  <a class="carousel-control-next">
+    <button role="presentation" class="owl-next carousel-control-next-icon" (click)="owlCar.next()"></button>
+  </a>
+  </div>
+  
+  
+  
