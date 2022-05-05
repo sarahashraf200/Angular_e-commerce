@@ -17,23 +17,28 @@ export class ProductDataService {
   setProduct(product : any){
    this.cartItemList.push(product);
    this.productList.next(product);
+   //console.log("this is after")
+  // console.log(this.cartItemList)
   }
   addtoCart(product : any){
     this.cartItemList.push(product);
     this.productList.next(this.cartItemList);
-    console.log(this.cartItemList)
+   // console.log(this.cartItemList)
   }
   removeAllCart(){
     this.cartItemList = []
     this.productList.next(this.cartItemList);
   }
-  removeCartItem(product: any){
-    this.cartItemList.map((a:any, index:any)=>{
-      if(product.id=== a.id){
-        this.cartItemList.splice(index,1);
-      }
-    })
+  removeCartItem(index: number){
+   
+    this.cartItemList.splice(index, 1);
+   
     this.productList.next(this.cartItemList);
+   // console.log("length" , this.cartItemList.length)
+    console.log("this is cart" , this.cartItemList)
+    //console.log("this is product list" , this.productList)
+   // return this.productList.asObservable();
+
   }
 
   constructor() 

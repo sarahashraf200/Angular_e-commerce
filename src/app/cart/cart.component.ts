@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductDataService } from '../product-data.service' ; 
 import { BehaviorSubject , observable} from 'rxjs';
+import { ConstantPool } from '@angular/compiler';
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
@@ -28,10 +29,10 @@ export class CartComponent implements OnInit {
    sum : number = 0;
    ship : number = 10;
   ngOnInit(): void {
-    this.products = []
+   this.products = []
    this.cartService.getProducts()
    .subscribe(res=>{
-    console.log(res)
+    console.log("ressss" , res)
     // var item = {name : res.name , price : res.price , desc : res.desc ,size : res.size_selection , color : res.color_selection,
     //   qt: res.qt }
     if (res.length !=0){
@@ -43,26 +44,39 @@ export class CartComponent implements OnInit {
       });
     // console.log(this.sum);
     }
+  
     else {
       this.products = [];
     }
 
-
+   console.log("products from init" , this.products)
    })
-   
- 
  
   }
+  
+
+
+ 
+ 
+  
 
   emptycart(){
     this.cartService.removeAllCart();
+    
 
-  }
-
-  removeItem(item: any){
-    this.cartService.removeCartItem(item);
   }
   
+  
+  removeItem(index: number){
+   //this.products = []
+  // this.products.splice(index , 1)
+    this.cartService.removeCartItem(index)
+   // console.log("productsssss" ,this.products)
+ 
+  
+ 
+    
+  }
   
 
   selected(){
@@ -83,3 +97,4 @@ export class CartComponent implements OnInit {
   }*/
   }
 }
+

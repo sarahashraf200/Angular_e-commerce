@@ -53,7 +53,7 @@ Submit() {
 
   var product = {
     name: this.name, price: this.price, desc: this.desc, size: this.size_selection, color: this.color_selection,
-    qt: this.qt, total: this.total, sum: this.sum
+    qt: this.qt, total: this.total, sum: this.sum , img: this.img_path
   }
   this.dservice.setProduct(product);
 
