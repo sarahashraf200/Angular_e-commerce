@@ -3,9 +3,6 @@ import { ProductDataService } from '../../product-data.service';
 import { BehaviorSubject, observable } from 'rxjs';
 import { ProductCRUDService } from '../CRUD/product-crud.service';
 
-
-
-
 import {
   ActivatedRoute
 } from '@angular/router';
