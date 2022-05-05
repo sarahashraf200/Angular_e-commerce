@@ -5,6 +5,8 @@ import { Router } from '@angular/router';
   providedIn: 'root'
 })
 export class AuthService {
+  flag_login : any;
+  flag_logged_in : boolean = false;
 
   constructor(private fireauth : AngularFireAuth , private router : Router) { }
 
@@ -13,10 +15,14 @@ export class AuthService {
         localStorage.setItem('token','true');
         //console.log(res.user?.emailVerified)
        console.log("tmam");
+       this.flag_login = email
+       this.flag_logged_in = true;
+       console.log(this.flag_login);
        this.router.navigate(['/home']);
 
     }, err => {
         alert(err.message);
+        this.flag_logged_in = false;
         this.router.navigate(['/login']);
     })
   }
