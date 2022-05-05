@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators, AbstractControl } from '@angular/forms';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { AuthService } from 'src/app/shared/auth.service';
+import { AuthService  } from 'src/app/shared/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -39,9 +39,13 @@ export class LoginComponent implements OnInit {
     //console.log(JSON.stringify(this.exform.value.email, null, 2));
     console.log(this.exform.value.email);
     this.auth.login(this.email,this.password);
+    console.log(this.auth.flag_login)
     
     //this.email = '';
     //this.password = '';
+  }
+  checkAdmin(){
+    
   }
   onReset(): void {
     this.submitted = false;
@@ -52,6 +56,7 @@ export class LoginComponent implements OnInit {
   
 
   ngOnInit(): void {
+    this.checkAdmin();
   }
 
 

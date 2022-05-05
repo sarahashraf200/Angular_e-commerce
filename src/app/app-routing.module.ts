@@ -7,6 +7,7 @@ import { ProductResolverResolver } from './Resolvers/product-resolver.resolver';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { AddProductComponent } from './add-product/add-product.component';
+import { AuthGuard } from './guard/auth.guard';
 
 const routes: Routes = [
   {path:'cart',component: CartComponent},
@@ -16,7 +17,7 @@ const routes: Routes = [
   // {path:'home/:category', component: HomePageComponent},
   {path:'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
-  {path: 'add-product', component: AddProductComponent},
+  {path: 'add-product', component: AddProductComponent , canActivate:[AuthGuard] },
   { path: '', redirectTo: '/home',  pathMatch: 'full' }
 ];
 
