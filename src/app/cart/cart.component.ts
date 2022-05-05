@@ -39,7 +39,7 @@ export class CartComponent implements OnInit {
       this.products.push(res)
       console.log("msh zero")
       this.products.forEach((item : any) => {
-        this.sum += item.price;
+        this.sum += item.total;
       
       });
     // console.log(this.sum);
@@ -68,7 +68,8 @@ export class CartComponent implements OnInit {
   
   
   removeItem(index: number){
-   //this.products = []
+   this.products = []
+   this.sum = 0;
   // this.products.splice(index , 1)
     this.cartService.removeCartItem(index)
    // console.log("productsssss" ,this.products)
@@ -79,22 +80,6 @@ export class CartComponent implements OnInit {
   }
   
 
-  selected(){
-   /* console.log(this.car_y);
-    console.log(this.car_y1);
-    console.log(this.car_y2);
-    console.log("t1  ", this.total1);
-    console.log("t2  ", this.total2);
-    console.log("t3  ", this.total3);
-
-     this.total_price = this.car_y *  this.total1;
-    this.total_price1 = this.car_y1 * this.total2;
-    this.total_price2 = this.car_y2 * this.total3;
-    console.log("t1  ", this.total_price);
-    console.log("t2  ", this.total_price1);
-    console.log("t3  ", this.total_price2);
   
-  }*/
-  }
 }
 

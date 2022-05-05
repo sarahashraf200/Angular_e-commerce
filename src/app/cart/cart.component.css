@@ -227,10 +227,10 @@ input:focus {
 #test {
   display: inline-block;
   float: right;
-  border: 2px solid rgba(150, 146, 146, 0.2);
+  border: 1px solid rgba(150, 146, 146, 0.2);
   border-radius: .10rem;
   font-size: 15px;
-  font-weight: bold;
+  /* font-weight: bold; */
   height: 200px;
   font-style: normal;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
@@ -238,10 +238,9 @@ input:focus {
   width: 250px;
 }
 h4,
-h6 {
-  font-weight: 50;
+h6, th  {
+  font-weight: 20;
 }
-
 
 .center {
   position: absolute;

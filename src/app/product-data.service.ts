@@ -32,8 +32,10 @@ export class ProductDataService {
   removeCartItem(index: number){
    
     this.cartItemList.splice(index, 1);
-   
-    this.productList.next(this.cartItemList);
+    for (let p of this.cartItemList){
+      this.productList.next(p);
+    }
+   // this.productList.next(this.cartItemList);
    // console.log("length" , this.cartItemList.length)
     console.log("this is cart" , this.cartItemList)
     //console.log("this is product list" , this.productList)
