@@ -19,7 +19,9 @@ import { DescriptionComponent } from './ProductPageComponents/description/descri
 import { ProductPageComponent } from './ProductPageComponents/product-page/product-page.component';
 import { TabsPanelComponent } from './ProductPageComponents/tabs-panel/tabs-panel.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 import {MatTabsModule} from '@angular/material/tabs';
+
 import { ReactiveFormsModule } from '@angular/forms';
 import { AddProductComponent } from './add-product/add-product.component';
 
@@ -53,7 +55,7 @@ import { AngularFireAuthModule } from '@angular/fire/compat/auth';
     TabsPanelComponent,
     HomePageComponent,
     RegisterComponent,
-    AddProductComponent
+    AddProductComponent,
   ],
   imports: [
     BrowserModule,
@@ -68,8 +70,7 @@ import { AngularFireAuthModule } from '@angular/fire/compat/auth';
     AngularFireModule.initializeApp(environment.firebase),
     provideAuth(() => getAuth()),
     provideDatabase(() => getDatabase()),
-    provideFirestore(() => getFirestore()),
-    
+    provideFirestore(() => getFirestore()), 
          
   ],
   providers: [ProductDataService,DatePipe],
