@@ -10,7 +10,6 @@ import { CartComponent } from './cart/cart.component';
 import { ProductDetailsComponent } from './ProductPageComponents/product-details/product-details.component';
 import { FooterComponent } from './footer/footer.component';
 import { NavbarComponent } from './navbar/navbar.component';
-import { CarouselComponent } from './carousel/carousel.component';
 import { ProductDataService } from './product-data.service';
 
 import { ReviewsComponent } from './ProductPageComponents/reviews/reviews.component';
@@ -19,7 +18,10 @@ import { DescriptionComponent } from './ProductPageComponents/description/descri
 import { ProductPageComponent } from './ProductPageComponents/product-page/product-page.component';
 import { TabsPanelComponent } from './ProductPageComponents/tabs-panel/tabs-panel.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 import {MatTabsModule} from '@angular/material/tabs';
+import { CarouselModule } from 'ngx-owl-carousel-o';
+
 import { ReactiveFormsModule } from '@angular/forms';
 import { AddProductComponent } from './add-product/add-product.component';
 
@@ -33,6 +35,9 @@ import { provideDatabase,getDatabase } from '@angular/fire/database';
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { RegisterComponent } from './register/register.component';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+import { RelatedProductsComponent } from './ProductPageComponents/related-products/related-products.component';
+import { CarouselProductDetailsComponent } from './ProductPageComponents/carousel-product-details/carousel-product-details.component';
+import { SearchPageComponent } from './search-page/search-page.component';
 
 
 
@@ -45,7 +50,6 @@ import { AngularFireAuthModule } from '@angular/fire/compat/auth';
     ProductDetailsComponent,
     FooterComponent,
     NavbarComponent,
-    CarouselComponent,
     ReviewsComponent,
     AdditionalInfoComponent,
     DescriptionComponent,
@@ -53,7 +57,10 @@ import { AngularFireAuthModule } from '@angular/fire/compat/auth';
     TabsPanelComponent,
     HomePageComponent,
     RegisterComponent,
-    AddProductComponent
+    AddProductComponent,
+    RelatedProductsComponent,
+    CarouselProductDetailsComponent,
+    SearchPageComponent,
   ],
   imports: [
     BrowserModule,
@@ -69,6 +76,7 @@ import { AngularFireAuthModule } from '@angular/fire/compat/auth';
     provideAuth(() => getAuth()),
     provideDatabase(() => getDatabase()),
     provideFirestore(() => getFirestore()),
+    CarouselModule 
     
          
   ],

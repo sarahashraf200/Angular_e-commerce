@@ -1,0 +1,20 @@
+  <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
+    <div class="wrapper">
+      <owl-carousel-o [options]="customOptions" #owlCar>
+        <ng-container *ngFor="let slide of images">
+          <ng-template carouselSlide>
+            <img style="height: 640px; width:500px" [src]="slide.path" [alt]="slide.id"[title]="slide.title">
+          </ng-template>
+        </ng-container>
+      </owl-carousel-o>
+    </div>
+    
+    
+    <a class="carousel-control-prev">
+      <button role="presentation" class="owl-prev carousel-control-prev-icon" (click)="owlCar.prev()"></button>
+    </a>
+    <a class="carousel-control-next">
+      <button role="presentation" class="owl-next carousel-control-next-icon" (click)="owlCar.next()"></button>
+    </a>
+</div>
+  

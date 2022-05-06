@@ -27,11 +27,6 @@ export class ReviewCRUDService {
     });
   }
 
-  // Fetch Single Review Object
-  GetProduct(id: string) {
-    this.reviewRef = this.db.object('Reviews/Jacket/' + id);
-    return this.reviewRef;
-  }
   // Fetch Review List
   GetReviewsList(id: string) {
     this.reviewsRef = this.db.list('Reviews/'+ id);

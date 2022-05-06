@@ -8,13 +8,13 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { AddProductComponent } from './add-product/add-product.component';
 import { AuthGuard } from './guard/auth.guard';
+import { SearchPageComponent } from './search-page/search-page.component';
 
 const routes: Routes = [
   {path:'cart',component: CartComponent},
   {path:'product-page/:id', component: ProductPageComponent},
   {path:'home', component: HomePageComponent},
-
-  // {path:'home/:category', component: HomePageComponent},
+  {path:'search-page/:name', component: SearchPageComponent},
   {path:'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
   {path: 'add-product', component: AddProductComponent , canActivate:[AuthGuard] },
