@@ -18,8 +18,8 @@
 
 
             <div class="col-md-6 col-lg-7 p-b-30 " style="height:40%; width:40%">
-                    <app-carousel-product-details [img_path]="img_path"></app-carousel-product-details>
-              
+                <app-carousel-product-details [img_path]="img_path"></app-carousel-product-details>
+
             </div>
             <div class="col-md-6 col-lg-5 p-b-30">
                 <div class="p-r-50 p-t-5 p-lr-0-lg">
@@ -71,17 +71,18 @@
                         <div class="product-num-container">
                             <div class="size-204 flex-w flex-m respon6-next">
                                 <div>
-                                    <i class=" fa fa-minus" style="margin:1%"></i>
+
+                                    <span class="minus">-</span>
                                     <input type="number" [(ngModel)]="qt" value="1" min="0" max="10" step="1"
                                         style="margin:1%" />
-                                    <i class="fa fa-plus" style="margin:1%"></i>
-
+                                    <span class="plus">+</span>
                                     <a routerLink="/cart" (click)="Submit()" class="btn btn-secondary custom-btn ">
                                         Add to cart
                                     </a>
                                 </div>
 
                             </div>
+
                         </div>
                     </div>
 
