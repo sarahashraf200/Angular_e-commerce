@@ -16,12 +16,10 @@
 
     <br>
     <div id="dropdownlist">
-        <label class="label-style" for="subcategory">subcategory:</label>
-        <select formControlName="categoryList" class="form-control">
-            <option disabled>Select category</option>
-            <option>Choose category</option>
-            <option *ngFor="let category of one">{{one}}</option>
-            <option *ngFor="let category of two">{{two}}</option>
+        <label class="label-style" for="subcategory">Category:</label>
+        <select  class="form-select" [(ngModel)]= "category" name="CategoryList">
+            <option selected disabled  value="">Choose Category</option>
+            <option *ngFor="let element of categories">{{element}}</option>
         </select>
   </div>
   <br>

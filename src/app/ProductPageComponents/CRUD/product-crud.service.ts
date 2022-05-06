@@ -26,6 +26,7 @@ export class ProductCRUDService {
       price: product.price,
       desc: product.desc,
       img: product.img,
+      category: product.category,
     });
   }
   // Fetch Single Product Object
