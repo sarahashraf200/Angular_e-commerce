@@ -36,10 +36,12 @@ export class LoginComponent implements OnInit {
     }*/
 
     console.log("ay 7aga?")
+   // console.log(this.auth.auth)
     //console.log(JSON.stringify(this.exform.value.email, null, 2));
     console.log(this.exform.value.email);
     this.auth.login(this.email,this.password);
-    console.log(this.auth.flag_login)
+    console.log("token222" , this.auth.isLoggedIn())
+
     
     //this.email = '';
     //this.password = '';
