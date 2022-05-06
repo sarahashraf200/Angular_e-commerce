@@ -3,4 +3,5 @@ export interface ProductInfo {
     price: number;
     desc: string;
     img: string;
+    category: string;
 }

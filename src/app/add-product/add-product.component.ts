@@ -10,11 +10,11 @@ import { ProductInfo } from '../ProductPageComponents/CRUD/ProductInfo';
 })
 export class AddProductComponent implements OnInit {
 
-  one = ['jackets']
-  two=['shirts']
-
-
+  categories = ['Women','Men']
   
+
+
+  category:string = ""
   name :string =""
   price: string =""
   desc: string=""
@@ -29,12 +29,13 @@ export class AddProductComponent implements OnInit {
      };
 
 onSubmit(){
-  var ProductData = {'name': this.name ,'price': +this.price ,  'desc': this.desc, 'img': this.img}
+  var ProductData = {'name': this.name ,'price': +this.price ,  'desc': this.desc, 'img': this.img,'category':this.category}
     this.productCrudApi.AddProduct(ProductData)
     this.price=""
     this.name=""
     this.desc=""
     this.img= ""
+    this.category=""
 }
 
 }
