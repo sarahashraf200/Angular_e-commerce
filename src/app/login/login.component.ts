@@ -35,20 +35,22 @@ export class LoginComponent implements OnInit {
       return;
     }*/
 
+
     console.log("ay 7aga?")
    // console.log(this.auth.auth)
     //console.log(JSON.stringify(this.exform.value.email, null, 2));
     console.log(this.exform.value.email);
     this.auth.login(this.email,this.password);
+    console.log("hello " ,this.auth.login(this.email,this.password));
     console.log("token222" , this.auth.isLoggedIn())
-
+   console.log("uid 12346666" ,this.auth.final_try())
+    
+   // this.auth.final_try()
     
     //this.email = '';
     //this.password = '';
   }
-  checkAdmin(){
-    
-  }
+  
   onReset(): void {
     this.submitted = false;
     this.exform.reset();
@@ -58,7 +60,7 @@ export class LoginComponent implements OnInit {
   
 
   ngOnInit(): void {
-    this.checkAdmin();
+    
   }
 
 

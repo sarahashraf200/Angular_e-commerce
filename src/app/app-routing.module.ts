@@ -8,16 +8,18 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { AddProductComponent } from './add-product/add-product.component';
 import { AuthGuard } from './guard/auth.guard';
+import { AdminGuard } from './guard/admin.guard';
 import { SearchPageComponent } from './search-page/search-page.component';
 
+
 const routes: Routes = [
-  {path:'cart',component: CartComponent},
+  {path:'cart',component: CartComponent , canActivate:[AuthGuard]},
   {path:'product-page/:id', component: ProductPageComponent},
   {path:'home', component: HomePageComponent},
   {path:'search-page/:name', component: SearchPageComponent},
   {path:'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
-  {path: 'add-product', component: AddProductComponent , canActivate:[AuthGuard] },
+  {path: 'add-product', component: AddProductComponent , canActivate:[AdminGuard] },
   { path: '', redirectTo: '/home',  pathMatch: 'full' }
 ];
 
