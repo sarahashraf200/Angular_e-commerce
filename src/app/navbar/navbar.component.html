@@ -18,6 +18,22 @@
                      </form>
                      <a routerLink="/cart" class=" icons fa fa-shopping-cart link-dark"></a>
                      <a class="icons fa fa-heart link-dark"></a>
+                     <mat-menu #lazyMenu="matMenu">
+                        <ng-template matMenuContent let-name="name" let-hobby="hobby">
+                           <button mat-menu-item>Settings</button>
+                           <button mat-menu-item (click) = "logout()">Log out</button>
+                         </ng-template>
+                       </mat-menu>
+                     <a class="icons fa fa-user link-dark" [matMenuTriggerFor]="lazyMenu" [matMenuTriggerData]="{name: 'Vishwas', hobby: 'Football'}">
+                            
+                          <br/>
+                          <!--<button mat-icon-button [matMenuTriggerFor]="lazyMenu" [matMenuTriggerData]="{name: 'Vishwas', hobby: 'Football'}">
+                            Vishwas
+                          </button>-->
+                          <br />
+                        </a>
+                     
+                    
             </div>
         </div>
     </nav>

@@ -15,7 +15,9 @@ export class NavbarComponent implements OnInit {
   constructor(private route: Router , private auth : AuthService ) { }
   ngOnInit(): void {
   }
-
+  logout (){
+    this.auth.logout();
+  }
   btnClick(e:KeyboardEvent):void {
     if (e.key=='Enter'){
     this.route.navigate([`/search-page/`+this.name]);

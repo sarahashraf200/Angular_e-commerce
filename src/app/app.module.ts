@@ -24,7 +24,6 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
 
 import { ReactiveFormsModule } from '@angular/forms';
 import { AddProductComponent } from './add-product/add-product.component';
-
 import { AngularFireModule} from '@angular/fire/compat'
 import { AngularFirestoreModule } from '@angular/fire//compat/firestore';
 import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
@@ -39,7 +38,7 @@ import { RelatedProductsComponent } from './ProductPageComponents/related-produc
 import { CarouselProductDetailsComponent } from './ProductPageComponents/carousel-product-details/carousel-product-details.component';
 import { SearchPageComponent } from './search-page/search-page.component';
 
-
+import { MatMenuModule } from '@angular/material/menu';
 
 
 @NgModule({
@@ -68,6 +67,7 @@ import { SearchPageComponent } from './search-page/search-page.component';
     FormsModule,
     BrowserAnimationsModule,
     MatTabsModule,
+    MatMenuModule,
     ReactiveFormsModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     AngularFirestoreModule,
