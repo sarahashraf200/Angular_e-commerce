@@ -24,13 +24,23 @@
 .username {
     font-size: large;
 }
-
+.cards{
+    padding-top: 1%;
+}
 .user-card {
     width: 40%;
-    padding: 2%;
+    padding-left:2%;
+    padding-bottom: 1%;
     margin-left: 10%;
 }
 
 #Review{
     height: 100px;
 }
+
+.form-alert{
+    color:red;
+    padding:10px;
+    margin: auto;
+  }
+  

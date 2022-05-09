@@ -24,6 +24,7 @@ export class ReviewCRUDService {
     list.push({
       name: reviewInfo.name,
       review: reviewInfo.review,
+      currentDate: reviewInfo.currentDate
     });
   }
 

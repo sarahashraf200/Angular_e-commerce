@@ -11,8 +11,6 @@ import { ProductInfo } from '../ProductPageComponents/CRUD/ProductInfo';
 export class AddProductComponent implements OnInit {
 
   categories = ['Women','Men']
-  
-
 
   category:string = ""
   name :string =""
@@ -20,9 +18,7 @@ export class AddProductComponent implements OnInit {
   desc: string=""
   img: string= ""
 
-    constructor(private productCrudApi: ProductCRUDService) {
-      
-     }
+    constructor(private productCrudApi: ProductCRUDService) { }
  
   ngOnInit(): void {
    

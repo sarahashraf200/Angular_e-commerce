@@ -33,7 +33,7 @@
   font-weight: bold;
   font-size: medium;
 }
-input{
+.input-quantity{
   height:34px;
   width: 60px;
   text-align: center;
@@ -42,4 +42,15 @@ input{
   border-radius:4px;
   display: inline-block;
   vertical-align: middle;
+  margin:1%
+}
+
+.form-alert{
+  color:red;
+  padding:10px;
+  margin: auto;
+}
+
+.quantity{
+  margin-top: 10%;
 }
