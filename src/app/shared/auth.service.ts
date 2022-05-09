@@ -32,15 +32,14 @@ export class AuthService {
    }
   
   login(email : string, password : string) {
+    localStorage.clear();
     this.fireauth.signInWithEmailAndPassword(email,password).then( res => {
         localStorage.setItem('token','true');
-        //console.log(res.user?.emailVerified)
-        console.log("tokennn ", localStorage.getItem('token'))
-       console.log("tmam");
+      
        this.flag_login = email
        this.flag_logged_in = true;
-        //localStorage.setItem('userID',this.user_id)
-      this.final_try();
+       
+        this.user_try();
        console.log(this.flag_logged_in);
        this.router.navigate(['/home']);
 
@@ -51,6 +50,7 @@ export class AuthService {
         localStorage.setItem('token','false');
         console.log("tokennn ", localStorage.getItem('token'))
     })
+    
   }
   isLoggedIn(){
     const loggedin = localStorage.getItem('token');
@@ -76,21 +76,36 @@ export class AuthService {
       return false;
     }
   }*/
+  user_try(){
+      
+      this.fireauth.onAuthStateChanged(user => {
+     
+        if (user) {
+        
+          return true;
+          }
+      
+      else{
+        return false;
+      }
+       
+      });
+     if(localStorage.getItem("userID")){
+       return true;
+     }
+     else{
+       return false;
+     }
+  }
  final_try(){
+  
   this.fireauth.onAuthStateChanged(user => {
-   // localStorage.clear()
+   
     if (user) {
-      //localStorage.clear()
-      //localStorage.setItem('userID' ,'')
+     
       this.uiiid = JSON.stringify(user.uid)
       localStorage.setItem('userID' ,JSON.stringify(user.uid) )
-      /* if (localStorage.getItem('userID') === '"xIYFj1lGItQePqAFEli8qDN61Zr1"'){
-         console.log("yess");
-       }
-       else{
-
-       }*/
-         
+     
       }
   
   else{
@@ -107,7 +122,7 @@ export class AuthService {
     return false;
   }
 
- // console.log("???" ,this.uiiid)
+ 
 }
  
   // register method
@@ -130,6 +145,7 @@ export class AuthService {
     localStorage.removeItem('userID');
     console.log("removed");
     localStorage.clear();
+    this.user_try()
     }, err => {
       alert(err.message);
     })

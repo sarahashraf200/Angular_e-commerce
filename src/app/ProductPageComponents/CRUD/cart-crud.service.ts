@@ -7,14 +7,15 @@ import {
 } from '@angular/fire/compat/database';
 import { AuthService } from 'src/app/shared/auth.service';
 import { JsonPipe } from '@angular/common';
+import { ThisReceiver } from '@angular/compiler';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CartCRUDService {
  
+  user_id: any =""
   
-  user_id = localStorage.getItem('userID')
   parsed = ""
   parsed_slash = "";
   
@@ -24,21 +25,33 @@ export class CartCRUDService {
   productRef: AngularFireObject<any> 
 
   constructor(private db: AngularFireDatabase , private auth : AuthService) {
-    auth.final_try();
+   // auth.user_try();
+   
     this.productsRef = db.list(this.getuserID());
     this.productRef = db.object(this.getuserID());
-    //auth.final_try();
+ //  this.user_id = localStorage.getItem("userID")
   }
 
+  setID(){
+    
+  }
   getuserID(){
+    if ( this.auth.user_try()){
+      this.user_id = localStorage.getItem("userID")
+       }
+    
     if (this.user_id){
       this.parsed = this.user_id.replace(/\"/g, "")
-                    }
+                    
     
     this.parsed_slash =  this.parsed + "/"
     return this.parsed_slash.toString();
+    }
+  else{
+    console.log("d")
+    return "hello";
   }
-   
+}
   // Create Product
   AddProductToCart(product: any) {
     this.productsRef.push({
