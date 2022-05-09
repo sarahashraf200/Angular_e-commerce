@@ -1,26 +1,4 @@
-<!--<h2> login </h2>
-<form [formGroup]="exform" (ngSubmit)="onSubmit()">
-<div class="form-group">
-     <label class="col-form-label">Email:</label>
-     <input formControlName="email" type="text" class="form-control" id ="email" [ngClass]="{ 'is-invalid': submitted && f['email'].errors } ">
 
-        <div *ngIf="f['email'].touched && f['email'].invalid" class="alert alert-danger">
-          <div *ngIf="f['email'].errors && f['email'].errors['required']">Email is required.</div>
-          <div *ngIf="f['email'].errors && f['email'].errors['email']">Please, enter valid email address.</div>
-      </div>
-        </div>
-   <div class="form-group">
-     <label class="col-form-label">Password:</label>
-     <input formControlName="password" type="text" class="form-control"  [ngClass]="{ 'is-invalid': submitted && f['password'].errors }">
-     
-     <div *ngIf="f['password'].touched && f['password'].invalid" class="alert alert-danger">
-          <div *ngIf="f['password'].errors && f['password'].errors['required']">password is required.</div>
-          <div *ngIf="f['password'].errors && f['password'].errors['minlength']">Password minimum length is 3 characters</div>
-    
-</div>
-   </div>
-   <button (click)="clicksub()"  [disabled]="exform.invalid" type="button" class="btn btn-primary">Login</button>
-</form>-->
 <div class="container-fluid">
   <div class="row mt-5">
       <div class="col"></div>
@@ -59,13 +37,7 @@
                           </div>
                       </div>
                       <div class="row mt-2">
-                        <!--- <a (click)="signInWithGoogle()" style="text-decoration: none;cursor: pointer;">
-                              <div class="card shadow text-center">
-                                  <div class="card-body">
-                                      <img src="../../../assets/icons8-google-48.png" alt="" height="24px" width="24px"> Sign In with Google
-                                  </div>
-                              </div>
-                          </a>-->
+                    
                       </div>
                   </form>
               </div>

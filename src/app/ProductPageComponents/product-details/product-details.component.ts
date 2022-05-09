@@ -44,13 +44,7 @@ export class ProductDetailsComponent implements OnInit {
 
 
 Submit() {
-  if (this.qt != 0) {
-    this.total = this.price * this.qt;
-  }
-  else {
-    this.total = this.price;
-    this.qt = 1;
-  }
+  
 
   var product = {
     name: this.name, price: this.price, desc: this.desc, size: this.size_selection, color: this.color_selection,

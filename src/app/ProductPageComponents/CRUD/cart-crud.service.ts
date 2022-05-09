@@ -49,6 +49,32 @@ export class CartCRUDService {
     this.productRef = this.db.object('Cart/' + id);
     this.productRef.remove();
   }
+  addQuantity(id: string , qt: any){
+    this.productRef = this.db.object('Cart/' + id);
+    qt = qt+1;
+    this.productRef.update({
+      qt : qt
+    });
+    
+    console.log(qt);
+  }  
+  minusQuantity(id: string , qt: any){
+    this.productRef = this.db.object('Cart/' + id);
+    qt = qt-1;
+    this.productRef.update({
+      qt : qt
+    });
+    
+    console.log(qt);
+  }  
+
+  UpdateProductFromCart(id: string , qt:number) {
+    this.productRef = this.db.object('Cart/' + id);
+    this.productRef.update({
+      qt : qt
+    });
+    
+  }
 
   
    DeleteCartList(itemIdList:any[]) {

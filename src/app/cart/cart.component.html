@@ -1,48 +1,4 @@
-<!---
-<div class="shopping-cart">
- 
-
-
-  <div class="title">
-    Shopping Bag
-  </div>
-
- 
-  <div></div>
-  <div> <span id="product"> product</span> <span id="qt"> quantity</span> <span id="price"> price</span> <span>
-      total</span></div>
-
-  <div class="item" *ngFor="let item of products;let i=index">
-
-    <div class="buttons">
-      <span class="delete-btn"></span>
-      <span class="like-btn"></span>
-    </div>
-
-    <div class="image">
-      <img src="" alt="" />
-    </div>
-
-    <div class="description">
-      <span>Maison Margiela</span>
-      <span>Future Sneakers</span>
-      <span>White</span>
-      <span> {{item.price}}</span>
-    </div>
-    <div class="quantity">
-      <select [(ngModel)]="car_y" (change)="selected()">
-        <option value="null" selected disabled>Select option</option>
-        <option *ngFor="let item of data" [ngValue]="item">{{item}}</option>
-      </select>
-
-    </div>
-    <div class="total-price" [(ngModel)]="item[i]" ngDefaultControl>{{products.price }}</div>
-    <div class="total-price" [(ngModel)]="total_price" ngDefaultControl>{{total_price}}</div>
-  </div>
- 
-
-</div>
--->
+<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 <ng-container *ngIf="products.length !=0">
   <div class="container">
     <div id="test" >
@@ -76,10 +32,18 @@
                           <td><img style="width: 120px;" src="/assets/product-details/{{item.img}}.jpg" alt=""></td>
                           <td style="width: 25%;">{{item.desc}}</td>
                           <th style="width: 12%;">{{item.price}}</th>
-                          <td style="width: 12%;">{{item.qt}}</td>
-                          <td style="width: 12%;">{{item.total}}</td>                       
+                          <!--<td style="width: 12%;">{{item.qt}}</td>-->
+                          <!--<input type=" text" [(ngModel)]="qt"> -->
+                        
+                             
+                          <button style="margin-left: 5px;" class="btn btn-success" (click)="minusqt(item.id,item.qt)"><i class="fa fa-minus" style="font-size:10px;color:black"></i></button>
+
+                          <span> {{ item.qt }}</span> 
+                          <button style="margin-left: 5px;" class="btn btn-success" (click)="addqt(item.id,item.qt)"><i class="fa fa-plus" style="font-size:10px;color:black"></i></button>
+                          <td style="width: 12%;">{{item.qt * item.price}}</td>                       
                           <td>
                               <button  (click)="removeItem(item.id)" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
+                             <!--- <button (click) ="updateqt(item.id, qt)"> </button>-->
                           </td>
                       </tr>
                       <tr>

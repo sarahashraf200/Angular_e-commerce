@@ -20,7 +20,7 @@ export class AuthService {
 
   
 
-  // Set current user in your session after a successful login
+  
    
    
 
@@ -30,45 +30,6 @@ export class AuthService {
       
   
    }
-  getUid() {
-    
-    this.fireauth.currentUser.then( data  => {
-      //console.log(data);
-     
-      if (data != null){
-        const uid = data.uid
-        console.log("uid" , data.uid);
-        localStorage.setItem('userID' , data.uid)
-       /* if (uid == "xIYFj1lGItQePqAFEli8qDN61Zr1"){
-           this.isadmin = true;
-           //return data.uid;
-        }
-        else{
-          this.isadmin = false;
-        }
-        //return false;
-        */
-       // this.uiid = uid
-      }
-     
-    
-     // console.log("uiddd" , this.isadmin)
-     // return ;
-     
-    });
-   //console.log("1 " , this.uiid)
-   ///return false;
-   //return this.uiid;
-    console.log("!!!!" , localStorage.getItem('userID'))
-     if (localStorage.getItem('userID') === "xIYFj1lGItQePqAFEli8qDN61Zr1"){
-       console.log("entered true");
-       return true;
-     }
-     else{
-       console.log("entered false");
-       return false;
-     }
-  }
   
   login(email : string, password : string) {
     this.fireauth.signInWithEmailAndPassword(email,password).then( res => {
@@ -102,45 +63,7 @@ export class AuthService {
     }
     return  this.flag_logged_in;
   }
-  isAdmin (){
-    let uiid : any
-    if (this.isLoggedIn()){
-      this.fireauth.currentUser.then( data  => {
-        //console.log(data);
-        if (data != null){
-          console.log("uid" , data.uid);
-          //const uid = data.uid
-          if (data.uid == "xIYFj1lGItQePqAFEli8qDN61Zr1"){
-             uiid = true;
-            // return data.uid;
-           // console.log("dd")
-          }
-          else{
-            uiid = false;
-          }
-        
-          //return false;
-          
-        
-        }
-        
-      
-        console.log("uiddd" , this.uiid)
-        
-        
-      });
-      if (uiid == true){
-         this.isadmin = true
-      }
-      else{
-        this.isadmin = false
-      }
-     //console.log("1 " , this.uiid)
-     ///return false;
-    
-    }
-    
-  }
+  
   user_try(){
    this.fireauth.authState.subscribe( user =>{
       if (user) { this.user_id = user.uid }
@@ -163,15 +86,7 @@ export class AuthService {
        if (localStorage.getItem('userID') === '"xIYFj1lGItQePqAFEli8qDN61Zr1"'){
          console.log("yess");
        }
-         //console.log("hiii" , JSON.stringify(user.uid))
-         /*if (this.uiiid == "xIYFj1lGItQePqAFEli8qDN61Zr1"){
-           return true;
-         }
-         else{
-         return false;
-         }*/
-  // No user is signed in.
-   //localStorage.setItem('userID' , 'sarah')
+         
   }
   else{
     
@@ -189,10 +104,7 @@ export class AuthService {
 
  // console.log("???" ,this.uiiid)
 }
- admin(){
-  
- }
-
+ 
   // register method
   register(email : string, password : string) {
     this.fireauth.createUserWithEmailAndPassword(email, password).then( res => {

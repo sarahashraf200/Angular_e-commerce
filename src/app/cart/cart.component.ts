@@ -8,7 +8,7 @@ import { CartCRUDService } from '../ProductPageComponents/CRUD/cart-crud.service
   styleUrls: ['./cart.component.css']
 })
 export class CartComponent implements OnInit {
-
+  qt: number =0;
   data:Array<any> = [ 1 , 2 , 3 , 4 ,5 ];
   public products : any =[];
   public items : any =[];
@@ -26,7 +26,8 @@ export class CartComponent implements OnInit {
       this.products.push(product)
       });
             this.products.forEach((item : any) => {
-            this.sum += item.total;   
+            this.sum += (item.price * item.qt);  
+            console.log("sum" , this.sum)
             });
     });
  
@@ -41,6 +42,15 @@ export class CartComponent implements OnInit {
     this.cartDbService.DeleteCartList(itemIdList) 
   }
   
+  addqt(itemID : string , item : any ){
+    this.cartDbService.addQuantity(itemID , item)
+    this.sum=0;
+    
+  }
+  minusqt(itemID : string , item : any){
+    this.cartDbService.minusQuantity(itemID , item)
+    this.sum =0;
+  }
   
   removeItem(itemId: any){
    this.sum = 0;
