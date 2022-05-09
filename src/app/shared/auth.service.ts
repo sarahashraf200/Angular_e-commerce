@@ -27,7 +27,7 @@ export class AuthService {
 
   constructor(private fireauth : AngularFireAuth , private router : Router) {
   
-      
+      this.final_try();
   
    }
   
@@ -39,8 +39,8 @@ export class AuthService {
        console.log("tmam");
        this.flag_login = email
        this.flag_logged_in = true;
-        
-
+        //localStorage.setItem('userID',this.user_id)
+      this.final_try();
        console.log(this.flag_logged_in);
        this.router.navigate(['/home']);
 
@@ -64,7 +64,7 @@ export class AuthService {
     return  this.flag_logged_in;
   }
   
-  user_try(){
+  /*user_try(){
    this.fireauth.authState.subscribe( user =>{
       if (user) { this.user_id = user.uid }
     });
@@ -75,19 +75,24 @@ export class AuthService {
     else{
       return false;
     }
-  }
+  }*/
  final_try(){
   this.fireauth.onAuthStateChanged(user => {
-    localStorage.clear()
+   // localStorage.clear()
     if (user) {
-      localStorage.clear()
+      //localStorage.clear()
+      //localStorage.setItem('userID' ,'')
       this.uiiid = JSON.stringify(user.uid)
       localStorage.setItem('userID' ,JSON.stringify(user.uid) )
-       if (localStorage.getItem('userID') === '"xIYFj1lGItQePqAFEli8qDN61Zr1"'){
+      /* if (localStorage.getItem('userID') === '"xIYFj1lGItQePqAFEli8qDN61Zr1"'){
          console.log("yess");
        }
+       else{
+
+       }*/
          
-  }
+      }
+  
   else{
     
   }
@@ -123,6 +128,7 @@ export class AuthService {
       console.log("user signed out")
     //  localStorage.setItem('userID' , data.uid)
     localStorage.removeItem('userID');
+    console.log("removed");
     localStorage.clear();
     }, err => {
       alert(err.message);

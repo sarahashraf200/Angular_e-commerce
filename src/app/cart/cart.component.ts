@@ -35,6 +35,7 @@ export class CartComponent implements OnInit {
 
 
   emptycart(){
+    this.sum =0;
     var itemIdList: any =[];
     this.products.forEach((item : any) => {
       itemIdList.push(item.id)  
