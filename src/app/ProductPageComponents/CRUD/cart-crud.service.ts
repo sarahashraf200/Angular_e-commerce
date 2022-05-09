@@ -47,7 +47,15 @@ export class CartCRUDService {
   // Delete Product Object
   DeleteProductFromCart(id: string) {
     this.productRef = this.db.object('Cart/' + id);
-    this.productRef.remove();
+    this.productRef.update({
+      qt : 0
+    });
+  }
+  undoDeletion(id: string){
+    this.productRef = this.db.object('Cart/' + id);
+    this.productRef.update({
+      qt : 1
+    });
   }
   addQuantity(id: string , qt: any){
     this.productRef = this.db.object('Cart/' + id);

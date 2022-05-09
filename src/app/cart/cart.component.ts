@@ -56,6 +56,10 @@ export class CartComponent implements OnInit {
    this.sum = 0;
     this.cartDbService.DeleteProductFromCart(itemId)
   }
+  undo(itemID : string){
+    this.cartDbService.undoDeletion(itemID);
+    this.sum=0;
+  }
   
 
   
