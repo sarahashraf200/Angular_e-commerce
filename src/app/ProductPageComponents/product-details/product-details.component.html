@@ -78,14 +78,14 @@
                             <div class="product-num-container">
                                 <div>
                                     <div>
-                                        <button class="minus" (click)="DecreaseQuantity()">-</button>
+                                        <button type="button" class="minus" (click)="DecreaseQuantity()">-</button>
                                         <div class="input-quantity"><p class="quantity">
                                             {{productQuantity}}
                                         </p>
                                         
                                         </div>
 
-                                        <button class="plus" (click)="IncreaseQuantity()">+</button>
+                                        <button type="button" class="plus" (click)="IncreaseQuantity()">+</button>
                                         <button routerLink="/cart" (click)="Submit()" type="submit"
                                             class="btn btn-secondary custom-btn" [disabled]="!productChoices.valid">
                                             Add to cart
