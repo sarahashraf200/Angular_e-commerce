@@ -60,7 +60,7 @@ export class CartCRUDService {
       desc: product.desc,
       img: product.img,
       qt: product.qt,
-      total: product.total
+      
     });
   }
 
