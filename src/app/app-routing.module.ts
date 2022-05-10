@@ -14,7 +14,9 @@ import { SearchPageComponent } from './search-page/search-page.component';
 
 const routes: Routes = [
   {path:'cart',component: CartComponent , canActivate:[AuthGuard]},
-  {path:'product-page/:id', component: ProductPageComponent},
+  {path:'product-page/:id', component: ProductPageComponent, resolve:{
+    productResolve:ProductResolverResolver
+  }},
   {path:'home', component: HomePageComponent},
   {path:'search-page/:name', component: SearchPageComponent},
   {path:'login', component: LoginComponent},

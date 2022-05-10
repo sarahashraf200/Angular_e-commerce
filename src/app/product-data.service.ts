@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject , Observable } from 'rxjs';
 import { CartCRUDService } from './ProductPageComponents/CRUD/cart-crud.service';
+import { ProductCRUDService } from './ProductPageComponents/CRUD/product-crud.service';
 @Injectable({
   providedIn: 'root'
 })
@@ -11,7 +12,7 @@ export class ProductDataService {
   public productList = new BehaviorSubject <any>([]);
   public productInfo = new BehaviorSubject<any>([]);
   
-  constructor(private cartDbService:CartCRUDService) {}
+  constructor(private cartDbService:CartCRUDService,private productApiService:ProductCRUDService) {}
   getProducts(){
     return this.productList.asObservable();
   } 
@@ -22,6 +23,7 @@ export class ProductDataService {
 
   //from home page set the selected product to send the information in navigation between routes
   setSelectedProduct(itemId:string) {
-    this.productInfo.next(itemId);
+    return this.productApiService.FetchProductDetails(itemId)
+    // this.productInfo.next(itemId);
   }
 }

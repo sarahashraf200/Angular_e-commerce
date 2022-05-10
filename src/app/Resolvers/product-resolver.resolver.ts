@@ -5,16 +5,16 @@ import {
   RouterStateSnapshot,
   ActivatedRouteSnapshot
 } from '@angular/router';
-import { Observable, of } from 'rxjs';
+
 
 @Injectable({
   providedIn: 'root'
 })
-export class ProductResolverResolver implements Resolve<boolean> {
+export class ProductResolverResolver implements Resolve<any> {
   constructor(private dataService: ProductDataService){
 
   }
-  resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> { 
-    return this.dataService.productInfo;
+  resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): any { 
+    return this.dataService.setSelectedProduct(route.params?.['id'])
   }
 }

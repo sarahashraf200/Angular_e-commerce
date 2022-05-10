@@ -35,16 +35,15 @@ export class ProductDetailsComponent implements OnInit {
   constructor(public dservice: ProductDataService, private route: ActivatedRoute,
     private productCrudApi: ProductCRUDService) { }
   ngOnInit(): void {
-    this.dservice.productInfo.subscribe((data) => {
-      this.productCrudApi.GetProduct(data).valueChanges().subscribe(data => {
-        if (data != undefined) {
-          this.name = data['name']
-          this.price = data['price']
-          this.desc = data['desc']
-          this.img_path = data['img']
-        }
-      });
+         this.route.data.subscribe(data =>{
+      if (data != undefined) {
+        this.name = data["productResolve"].name
+        this.price = data["productResolve"].price
+        this.desc = data["productResolve"].desc
+        this.img_path = data["productResolve"].img
+      }
     });
+
   }
 
 
@@ -66,14 +65,12 @@ export class ProductDetailsComponent implements OnInit {
   DecreaseQuantity(){
     if(this.productQuantity > 1 ){
       this.productQuantity -= 1;
-      this.productChoices.controls['qt'].setValue(this.productQuantity);
     }
      
   }
  IncreaseQuantity(){
    if(this.productQuantity <10){
     this.productQuantity += 1;
-    this.productChoices.controls['qt'].setValue(this.productQuantity);
   }
 
 }

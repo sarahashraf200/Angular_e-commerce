@@ -39,7 +39,7 @@ import { CarouselProductDetailsComponent } from './ProductPageComponents/carouse
 import { SearchPageComponent } from './search-page/search-page.component';
 
 import { MatMenuModule } from '@angular/material/menu';
-
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -76,9 +76,9 @@ import { MatMenuModule } from '@angular/material/menu';
     provideAuth(() => getAuth()),
     provideDatabase(() => getDatabase()),
     provideFirestore(() => getFirestore()),
-    CarouselModule 
+    CarouselModule,
+    HttpClientModule,  
     
-         
   ],
   providers: [ProductDataService,DatePipe],
   bootstrap: [AppComponent]
