@@ -13,7 +13,7 @@ export class ReviewsComponent implements OnInit {
   reviewForm = new FormGroup({
     reviewText: new FormControl('', Validators.required),
     nameText: new FormControl('', Validators.required),
-    emailText: new FormControl('', [Validators.email,Validators.required]),
+    emailText: new FormControl('', [Validators.email, Validators.required]),
   });
 
   reviewsAdded: any = []
@@ -21,17 +21,16 @@ export class ReviewsComponent implements OnInit {
   constructor(private reviewsCrudApi: ReviewCRUDService, public productService: ProductDataService) { }
 
   ngOnInit(): void {
-    this.productService.productInfo.subscribe((data) => {
-      this.currentProduct = data
-      this.reviewsCrudApi.GetReviewsList(data).valueChanges().subscribe(data => {
+    this.productService.productID.subscribe((productID) => {
+      this.currentProduct = productID
+      this.reviewsCrudApi.GetReviewsList(productID).valueChanges().subscribe(data => {
         this.reviewsAdded = []
         data.forEach(element => {
-          var reviewDetails = { 'review': element['review'], 'name': element['name'],'currentDate': element['currentDate'] }
+          var reviewDetails = { 'review': element['review'], 'name': element['name'], 'currentDate': element['currentDate'] }
           this.reviewsAdded.push(reviewDetails)
         })
       });
     });
-
   }
 
   onSubmit() {
@@ -41,9 +40,7 @@ export class ReviewsComponent implements OnInit {
       'email': this.reviewForm.controls['emailText'].value,
       'currentDate': new Date().toLocaleString()
     }
-    console.log(reviewDetails)
     this.reviewForm.reset();
-
     this.reviewsCrudApi.AddReview(reviewDetails, this.currentProduct)
 
   }
