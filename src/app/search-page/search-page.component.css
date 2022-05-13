@@ -29,7 +29,8 @@
     width: 82%;
     /* background-color: rgb(0, 0, 0); */
     height: 1000px;
-
+    padding-right: 1%;
+    padding-left: 1%;
 
 
 }
@@ -51,6 +52,7 @@
     border-color: rgba(170, 170, 170, 1);
     border-radius: 0px;
     padding-left: 5px;
+    padding-right: 5px;
     padding-top: 5px;
    
 }
@@ -60,4 +62,122 @@
     font-weight: 400;
     font-style: normal;
 
+}
+.labels{
+    padding-left: 5%;
+    padding-right: 5%;
+}
+.from_label{
+    font-family: 'Arial', sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 14px;
+    text-align: left;
+    color: #000000;
+    float: left;
+    margin-right: 45%;
+}
+.to_label{
+    font-family: 'Arial', sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 16px;
+    text-align: left;
+    color: #000000;
+    display: block;
+}
+.from_input{
+    font-family: 'Arial', sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 14px;
+    text-align: left;
+    color: #000000;
+    float: left;
+    width: 25%;
+    margin-left: 5%;
+    margin-right: 28%;
+}
+.to_input{
+    font-family: 'Arial', sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 14px;
+    text-align: left;
+    color: #000000;
+    width: 25%;
+    display: block;
+}
+.price_label{
+    font-family: 'Arial', sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 18px;
+    text-align: center;
+    /* margin: auto; */
+    color: #000000;
+    font-weight: bold;
+}
+.price_button{
+    margin-top: 2%;
+    margin-left: 38%;
+    color: #000000;
+    background-color: #ffffff;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgba(170, 170, 170, 1);
+    border-radius: 5px;
+}
+.checked{
+    color: #7A81C6;
+}
+.center{
+    text-align: center;
+}
+.star{
+    font-size: large;
+}
+.results_paragraph{
+    font-family: 'Arial', sans-serif;
+    font-size: 24px;
+    font-weight: bold;
+
+}
+.product{
+    flex: 0 0 21%;
+    /* max-width:232px ; */
+    min-width: 232px;
+    border-width: 0px;
+    width: 232px;
+    height: 287px;
+    font-family: 'Arial', sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 13px;
+    letter-spacing: normal;
+    color: #333333;
+    text-align: center;
+    line-height: normal;
+    text-transform: none;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border: #333333;
+    /* margin-right: auto; */
+    margin: 0 2% 0 2%;
+    margin-bottom: 2%
+}
+
+.PRODUCT_OVERVIEW{
+    text-rendering: optimizeLegibility;
+    font-kerning: normal;
+    white-space: nowrap;
+    text-transform: none;
+    font-family: 'Arial Bold', 'Arial', sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 32px;
+    text-align: left;
+    letter-spacing: normal;
+    color: #333333;
+    padding-left: 10% ;
 }

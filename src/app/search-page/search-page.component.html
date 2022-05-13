@@ -9,18 +9,38 @@
             <label for="checkbox">&#160; Free Shipping</label>
         </div>
         <div class="border">
-            <p>price</p>
+            <p class="price_label">price</p>
+            <div class="labels">
+                <label class="from_label" for="from">From</label>
+                <label class="to_label" for="To">To</label>
+            </div>
+            <input  class="from_input" type="text" name="from" id="">
+            <input class="to_input" type="text" name="To" id="">
+            <button class="price_button">Go</button>
         </div>
-        <div class="border">
-
-        </div>
-        <div class="border">
-
+        <div class="border center">
+            <p>Average Customer Rating </p>
+            <span class=" star fa fa-star checked"></span>
+            <span class=" star fa fa-star checked"></span>
+            <span class=" star fa fa-star checked"></span>
+            <span class=" star fa fa-star"></span>
+            <span class=" star fa fa-star"></span>
         </div>
     </div>
 
     <div class="not-filter">
-        
+        <p class="results_paragraph">Results of {{itemName}} </p>
+        <div class="products"   >
+     
+            <!-- <div class="product" routerLink="/product-page/{{item.id}}" *ngFor="let item of Products; let i = index" style="background-image: url('/assets/product-details/{{item.img}}.jpg')">
+    
+            </div> -->
+            <div class="product" routerLink="/product-page/{{item.id}}" *ngFor="let item of filter(Products); let i = index" style="background-image: url('/assets/product-details/{{item.img}}.jpg')">
+    
+            </div>
+    
+    
+        </div>
     </div>
 </div>
 
