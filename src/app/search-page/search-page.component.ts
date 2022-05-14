@@ -60,5 +60,9 @@ export class SearchPageComponent implements OnInit {
     });
 
   }
+  star(e:Event){
+
+      console.log(e);
+  }
 
 }
