@@ -4,17 +4,27 @@
         <div class="col-4">
             <div class="card shadow">
                 <div class="card-body">
-                    <form>
+                    <form [formGroup]="exform" (ngSubmit)="register()">
                         <div class="mb-3">
                             <h4 class="text-dark text-muted">Register</h4>
                         </div>
                         <div class="mb-3">
                           <label for="exampleInputEmail1" class="form-label">Email</label>
-                          <input type="email" class="form-control" name="email" [(ngModel)]="email">
+                          <input formControlName="email" type="text" class="form-control" id ="email" [ngClass]="{ 'is-invalid': submitted2 && f['email'].errors }" [(ngModel)]="email">
+                          <div *ngIf="f['email'].touched && f['email'].invalid" class="alert alert-danger">
+                            <div *ngIf="f['email'].errors && f['email'].errors['required']">Email is required.</div>
+                            <div *ngIf="f['email'].errors && f['email'].errors['email']">Please, enter valid email address.</div>
+                        </div>
                         </div>
                         <div class="mb-3">
                           <label for="exampleInputPassword1" class="form-label">Password</label>
-                          <input type="password" class="form-control" name="password" [(ngModel)]="password">
+                          <input formControlName="password" type="password" class="form-control"  [ngClass]="{ 'is-invalid': submitted2 && f['password'].errors }" [(ngModel)]="password" >
+
+                          <div *ngIf="f['password'].touched && f['password'].invalid" class="alert alert-danger">
+                            <div *ngIf="f['password'].errors && f['password'].errors['required']">password is required.</div>
+                            <div *ngIf="f['password'].errors && f['password'].errors['minlength']">Password minimum length is 6 characters</div>
+                      
+                  </div>
                         </div>
                         <button type="button" class="btn btn-info" (click)="register()">Register</button>
                         <div class="row">

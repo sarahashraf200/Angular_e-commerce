@@ -16,7 +16,7 @@ export class CartComponent implements OnInit {
    sum : number = 0;
    ship : number = 10;
   ngOnInit(): void {
-   this.products = []
+  //this.products = []
     this.cartDbService.GetCartList().snapshotChanges()
     .subscribe(data => {
       this.products = []
@@ -34,6 +34,9 @@ export class CartComponent implements OnInit {
   }
 
 
+  FinalDelete(itemID : string){
+    this.cartDbService.FinalDeleteProductFromCart(itemID);
+  }
   emptycart(){
     this.sum =0;
     var itemIdList: any =[];

@@ -84,6 +84,11 @@ export class CartCRUDService {
       qt : 0
     });
   }
+
+  FinalDeleteProductFromCart(id: string) {
+    this.productRef = this.db.object(this.getuserID() + id);
+    this.productRef.remove();
+  }
   undoDeletion(id: string){
     this.productRef = this.db.object(this.getuserID() + id);
     this.productRef.update({
