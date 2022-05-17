@@ -23,4 +23,10 @@ export class NavbarComponent implements OnInit {
     this.route.navigate([`/search-page/`+this.name]);
   }
   }
+  reloadComponent() {
+    let currentUrl = this.route.url;
+        this.route.routeReuseStrategy.shouldReuseRoute = () => false;
+        this.route.onSameUrlNavigation = 'reload';
+        this.route.navigate([currentUrl]);
+    }
 }
