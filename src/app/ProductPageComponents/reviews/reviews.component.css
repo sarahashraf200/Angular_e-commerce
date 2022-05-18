@@ -32,6 +32,9 @@
     padding-left:1%;
     padding-bottom: 1%;
 }
+.card{
+    border-color: rgba(196, 186, 186, 0.481);
+}
 
 #Review{
     height: 100px;
