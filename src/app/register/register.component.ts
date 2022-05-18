@@ -34,7 +34,7 @@ export class RegisterComponent implements OnInit {
 
   }*/
   exform: FormGroup = new FormGroup({
-    //'name' : new FormControl(null, Validators.required),
+    
     'email' : new FormControl (this.email, [Validators.required, Validators.email]) ,
     'password' : new FormControl(this.password, [Validators.required, Validators.minLength(6)])
   });
@@ -42,10 +42,7 @@ export class RegisterComponent implements OnInit {
   get f(): { [key: string]: AbstractControl}{
     return this.exform.controls;
   }
-  clicksub() {
-    console.log(this.exform.value);
-    this.exform.reset();
-  }
+ 
 
   register(): void {
   this.submitted2 = true;
@@ -53,15 +50,12 @@ export class RegisterComponent implements OnInit {
     console.log(this.exform.value.email);
    
     this.auth.register(this.email,this.password);
-   // this.email = '';
-   // this.password = '';
+    this.exform.reset();
+    this.submitted2 = false;
  
   }
   
-  onReset(): void {
-   this.submitted2 = false;
-    this.exform.reset();
-  }
+ 
 
  
   

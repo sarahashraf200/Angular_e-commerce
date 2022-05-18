@@ -34,58 +34,15 @@ export class LoginComponent implements OnInit {
     console.log(this.exform.value.email);
    
     this.auth.login(this.email,this.password);
-    
-
-  }
-  
-  onReset(): void {
-    this.submitted = false;
     this.exform.reset();
-  }
+    this.submitted = false;
 
- 
+  }
   
 
   ngOnInit(): void {
     //this.auth.final_try();
-    console.log("hii")
+  
   }
 
-
-
-
-
-
-
-
-
-
-/*onclick(){
-  this.click_flag = true;
-  this.success_flag = false;
-  for (let [key, value] of this.map) {
-    //console.log(key + " = " + value);
-    if (this.username == key && this.password == value){
-      console.log("sucess");
-      this.success_flag = true;
-      break;
-    }
-    }
-    
-    if(this.success_flag == false){
-      console.log("fail");
-     
-    }
-*/
-    
-    
-
 }
-
-/*print(){
-  for (let [key, value] of this.map) {
-    console.log(key + " = " + value);
-    }
-}*/
-
-

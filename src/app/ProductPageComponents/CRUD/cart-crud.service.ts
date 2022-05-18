@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ProductInfo } from './ProductInfo';
+import { HttpClient } from '@angular/common/http';
 import {
   AngularFireDatabase,
   AngularFireList,
@@ -13,7 +14,7 @@ import { ThisReceiver } from '@angular/compiler';
   providedIn: 'root'
 })
 export class CartCRUDService {
- 
+ status ="";
   user_id: any =""
   
   parsed = ""
@@ -24,7 +25,7 @@ export class CartCRUDService {
   productsRef: AngularFireList<any>
   productRef: AngularFireObject<any> 
 
-  constructor(private db: AngularFireDatabase , private auth : AuthService) {
+  constructor(private db: AngularFireDatabase , private auth : AuthService ,  private httpClient:HttpClient) {
    // auth.user_try();
    
     this.productsRef = db.list(this.getuserID());
@@ -45,6 +46,7 @@ export class CartCRUDService {
                     
     
     this.parsed_slash =  this.parsed + "/"
+    console.log(this.parsed_slash)
     return this.parsed_slash.toString();
     }
   else{
@@ -65,7 +67,7 @@ export class CartCRUDService {
   }
 
   GetCartList() {
-    this.productsRef = this.db.list(this.getuserID());
+    this.productsRef = this.db.list("/Cart/" + this.getuserID());
     return this.productsRef;
   }
   // Update Product Object
@@ -79,24 +81,33 @@ export class CartCRUDService {
   }
   // Delete Product Object
   DeleteProductFromCart(id: string) {
-    this.productRef = this.db.object(this.getuserID() + id);
+    this.productRef = this.db.object("/Cart/" +this.getuserID() + id);
     this.productRef.update({
       qt : 0
     });
   }
 
   FinalDeleteProductFromCart(id: string) {
-    this.productRef = this.db.object(this.getuserID() + id);
-    this.productRef.remove();
+   this.productRef = this.db.object("/Cart/" + this.getuserID() + id);
+   this.productRef.remove();
+   console.log(this.productRef)
+   this.httpClient.delete("https://hci-web-app-default-rtdb.europe-west1.firebasedatabase.app"+ "/Cart/" + this.getuserID() + id +"/.json").subscribe(data => {
+    console.log(data);
+  });
+   console.log("https://hci-web-app-default-rtdb.europe-west1.firebasedatabase.app"+ "/Cart/" + this.getuserID() + id +"/.json")
+
+   
+
+    console.log("??")
   }
   undoDeletion(id: string){
-    this.productRef = this.db.object(this.getuserID() + id);
+    this.productRef = this.db.object("/Cart/" +this.getuserID() + id);
     this.productRef.update({
       qt : 1
     });
   }
   addQuantity(id: string , qt: any){
-    this.productRef = this.db.object(this.getuserID() + id);
+    this.productRef = this.db.object("/Cart/" +this.getuserID() + id);
     qt = qt+1;
     this.productRef.update({
       qt : qt
@@ -105,7 +116,7 @@ export class CartCRUDService {
     console.log(qt);
   }  
   minusQuantity(id: string , qt: any){
-    this.productRef = this.db.object(this.getuserID() + id);
+    this.productRef = this.db.object("/Cart/" +this.getuserID() + id);
     qt = qt-1;
     this.productRef.update({
       qt : qt
@@ -116,7 +127,7 @@ export class CartCRUDService {
   }  
 
   UpdateProductFromCart(id: string , qt:number) {
-    this.productRef = this.db.object(this.getuserID() + id);
+    this.productRef = this.db.object("/Cart/" +this.getuserID() + id);
     this.productRef.update({
       qt : qt
     });
@@ -126,7 +137,7 @@ export class CartCRUDService {
   
    DeleteCartList(itemIdList:any[]) {
     itemIdList.forEach(id => {
-      this.productRef = this.db.object(this.getuserID() + id);
+      this.productRef = this.db.object("/Cart/" +this.getuserID() + id);
       this.productRef.remove();
     });
   }
