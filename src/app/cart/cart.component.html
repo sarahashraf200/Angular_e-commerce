@@ -4,9 +4,9 @@
     <div id="test" >
      <table class="table table-responsive">
        <tbody>
-         <tr><td>Total price: {{sum}} </td></tr>
-           <tr ><td>Shipping price: {{ship}} </td></tr>
-           <tr> <td>Total: {{sum + ship}} </td></tr>
+         <tr><td>Total price: {{sum | currency: 'USD'}} </td></tr>
+           <tr ><td>Shipping price: {{ship | currency: 'USD'}} </td></tr>
+           <tr> <td>Total: {{sum + ship | currency: 'USD'}} </td></tr>
        </tbody>
      </table>
     </div>
@@ -44,7 +44,7 @@
                           <td>{{item.name}}</td>
                           <td><img style="width: 120px;" src="/assets/product-details/{{item.img}}.jpg" alt=""></td>
                           <td style="width: 25%;">{{item.desc}}</td>
-                          <th style="width: 12%;">{{item.price}}</th>
+                          <th style="width: 12%;">{{item.price | currency: 'USD' }}</th>
                           <!--<td style="width: 12%;">{{item.qt}}</td>-->
                           <!--<input type=" text" [(ngModel)]="qt"> -->
                         
@@ -53,7 +53,7 @@
 
                           <span> {{ item.qt }}</span> 
                           <button style="margin-left: 5px;" class="btn btn-success" (click)="addqt(item.id,item.qt)"><i class="fa fa-plus" style="font-size:10px;color:black"></i></button>
-                          <td style="width: 12%;">{{item.qt * item.price}}</td>                       
+                          <td style="width: 12%;">{{item.qt * item.price | currency: 'USD'}}</td>                       
                           <td>
                               <button  (click)="removeItem(item.id)" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
                              <!--- <button (click) ="updateqt(item.id, qt)"> </button>-->
