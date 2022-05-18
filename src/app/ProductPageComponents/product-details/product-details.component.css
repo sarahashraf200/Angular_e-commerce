@@ -19,6 +19,24 @@
 .product-num-container{
   margin-top: 10%;
 }
+.price{
+  font-weight: bold;
+  font-size: large;
+  color: rgb(65, 65, 65);
+  margin-top: 5%;
+  margin-bottom: 5%;
+  
+}
+.description{
+  font-size: medium;
+  color: rgb(65, 65, 65);
+  margin-bottom: 7%;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+.title{
+  font-size: x-large;
+  color: rgb(64, 64, 64);
+}
 
 .minus, .plus{
   width:34px;
@@ -32,6 +50,13 @@
   text-align: center;
   font-weight: bold;
   font-size: medium;
+}
+
+.minus:hover {
+  background-color: rgb(176, 146, 220);
+}
+.plus:hover {
+  background-color: rgb(176, 146, 220);
 }
 .input-quantity{
   height:34px;
@@ -53,4 +78,8 @@
 
 .quantity{
   margin-top: 10%;
+}
+
+.form-select{
+  width:70%;
 }

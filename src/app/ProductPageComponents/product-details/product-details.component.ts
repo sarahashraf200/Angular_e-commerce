@@ -32,8 +32,7 @@ export class ProductDetailsComponent implements OnInit {
   total: number = 0;
   sum: number = 0;
 
-  constructor(public dservice: ProductDataService, private route: ActivatedRoute,
-    private productCrudApi: ProductCRUDService) { }
+  constructor(public productDataService: ProductDataService, private route: ActivatedRoute) { }
   ngOnInit(): void {
          this.route.data.subscribe(data =>{
       if (data != undefined) {
@@ -46,7 +45,6 @@ export class ProductDetailsComponent implements OnInit {
 
   }
 
-
   Submit() {
 
     var product = {
@@ -58,7 +56,7 @@ export class ProductDetailsComponent implements OnInit {
       qt: this.productQuantity,
       img: this.img_path
     }
-    this.dservice.setProduct(product);
+    this.productDataService.setProduct(product);
 
   }
 
