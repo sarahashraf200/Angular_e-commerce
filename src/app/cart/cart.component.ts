@@ -36,6 +36,7 @@ export class CartComponent implements OnInit {
 
   FinalDelete(itemID : string){
     this.cartDbService.FinalDeleteProductFromCart(itemID);
+    this.sum =0;
   }
   emptycart(){
     this.sum =0;
