@@ -59,8 +59,7 @@ export class CartCRUDService {
       price: product.price,
       desc: product.desc,
       img: product.img,
-      qt: product.qt,
-      
+      qt: product.qt,      
     });
   }
 

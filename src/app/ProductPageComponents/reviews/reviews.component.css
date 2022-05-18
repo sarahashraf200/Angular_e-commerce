@@ -9,7 +9,7 @@
 .btn-div {
     padding: 5%;
     margin-left: 70%;
-    width: 40%;
+    width: 70%;
 }
 
 
@@ -28,14 +28,14 @@
     padding-top: 1%;
 }
 .user-card {
-    width: 40%;
-    padding-left:2%;
+    width: 30%;
+    padding-left:1%;
     padding-bottom: 1%;
-    margin-left: 10%;
 }
 
 #Review{
     height: 100px;
+    margin-bottom: 2%;
 }
 
 .form-alert{
@@ -44,3 +44,22 @@
     margin: auto;
   }
   
+  .Reviews-Container{
+      width:50%;
+      margin-left: 20%;
+      margin-top: 5%;
+  }
+  .Review-Info{
+    color: rgb(80, 78, 78);
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: medium;
+    margin-top: 5%;
+    margin-left: 2%;
+    margin-bottom: 3%;
+  }
+
+.Review-Label,
+.Email-Label,
+.Name-Label{
+    font-size: small;
+}
