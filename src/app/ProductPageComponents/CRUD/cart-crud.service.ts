@@ -36,7 +36,7 @@ export class CartCRUDService {
   setID() {
 
   }
-  getuserID() {
+  getuserID(){
     if (this.auth.user_try()) {
       this.user_id = localStorage.getItem("userID")
     }
@@ -49,20 +49,20 @@ export class CartCRUDService {
       console.log(this.parsed_slash)
       return this.parsed_slash.toString();
     }
-    else {
-      console.log("d")
-      return "hello";
+    else{
+      return "notFound"
     }
+    
   }
   // Create Product
   AddProductToCart(product: any) {
-    this.productsRef.push({
-      name: product.name,
-      price: product.price,
-      desc: product.desc,
-      img: product.img,
-      qt: product.qt,
-    });
+      this.productsRef.push({
+        name: product.name,
+        price: product.price,
+        desc: product.desc,
+        img: product.img,
+        qt: product.qt,
+      });
   }
 
   GetCartList() {

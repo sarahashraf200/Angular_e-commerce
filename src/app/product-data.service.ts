@@ -18,7 +18,11 @@ export class ProductDataService {
   }
 
   setProduct(product: any) {
-    this.cartDbService.AddProductToCart(product);
+
+    if (localStorage.getItem("userID") != null) {
+      this.cartDbService.AddProductToCart(product);
+    }
+
   }
 
   //from home page set the selected product to send the information in navigation between routes
