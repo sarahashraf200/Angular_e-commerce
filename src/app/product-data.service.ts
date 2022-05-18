@@ -22,7 +22,7 @@ export class ProductDataService {
   }
 
   //from home page set the selected product to send the information in navigation between routes
-  setSelectedProduct(itemId: string) {
+  getSelectedProduct(itemId: string) {
     this.productID.next(itemId); //for reviews
     return this.productApiService.FetchProductDetails(itemId)
   }

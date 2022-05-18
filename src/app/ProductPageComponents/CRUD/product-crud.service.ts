@@ -56,6 +56,5 @@ export class ProductCRUDService {
   }
   FetchProductDetails(id: string) {
     return this.httpClient.get("https://hci-web-app-default-rtdb.europe-west1.firebasedatabase.app/Products/" + id + "/.json")
-
   }
 }

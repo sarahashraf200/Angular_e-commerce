@@ -1,5 +1,5 @@
-<div class="cards">
-
+<div class="Reviews-Container">
+    
     <div *ngFor="let item of reviewsAdded">
         <div class="user-card">
             <div class="card" style="width: 50rem;">
@@ -12,13 +12,18 @@
         </div>
     </div>
 
+    <div class="Review-Info">
+        <h2>Add a review
+        </h2>
+        <p>Your email address will not be published.</p>
+    </div>
 
 
     <form [formGroup]="reviewForm" (ngSubmit)="onSubmit()">
         <div class="container">
             <div>
-                <label for="Review">
-                    Review
+                <label for="Review" class="Review-Label">
+                    Your Review
                 </label>
                 <textarea class="form-control" id="Review" type="text" rows="3" formControlName="reviewText"
                     required></textarea>
@@ -27,7 +32,7 @@
             </div>
             <div class="row">
                 <div class="col-sm">
-                    <label for="Name">
+                    <label for="Name"  class="Name-Label">
                         Name
                     </label>
                     <input class="form-control" id="name" type="text" formControlName="nameText" required>
@@ -35,7 +40,7 @@
                         class="form-alert"> Enter Name </div>
                 </div>
                 <div class="col-sm">
-                    <label for="email">
+                    <label for="email"  class="Email-Label">
                         Email
                     </label>
                     <input class="form-control" id="email" type="text" formControlName="emailText">
@@ -48,3 +53,4 @@
             <button class="btn btn-light custom-btn" [disabled]="!reviewForm.valid">Submit</button>
         </div>
     </form>
+    </div>

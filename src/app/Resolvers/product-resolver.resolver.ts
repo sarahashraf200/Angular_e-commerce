@@ -11,10 +11,10 @@ import {
   providedIn: 'root'
 })
 export class ProductResolverResolver implements Resolve<any> {
-  constructor(private dataService: ProductDataService){
+  constructor(private dataService: ProductDataService) {
 
   }
-  resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): any { 
-    return this.dataService.setSelectedProduct(route.params?.['id'])
+  resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): any {
+    return this.dataService.getSelectedProduct(route.params?.['id'])
   }
 }
