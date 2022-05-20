@@ -18,16 +18,13 @@ export class ProductDataService {
   }
 
   setProduct(product: any) {
-
     if (localStorage.getItem("userID") != null) {
       this.cartDbService.AddProductToCart(product);
     }
-
   }
 
-  //from home page set the selected product to send the information in navigation between routes
   getSelectedProduct(itemId: string) {
     this.productID.next(itemId); //for reviews
-    return this.productApiService.FetchProductDetails(itemId)
+    return this.productApiService.GetProduct(itemId)
   }
 }

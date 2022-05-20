@@ -26,7 +26,11 @@ export class ReviewsComponent implements OnInit {
       this.reviewsCrudApi.GetReviewsList(productID).valueChanges().subscribe(data => {
         this.reviewsAdded = []
         data.forEach(element => {
-          var reviewDetails = { 'review': element['review'], 'name': element['name'], 'currentDate': element['currentDate'] }
+          var reviewDetails = { 
+            'review': element['review'], 
+            'name': element['name'], 
+            'currentDate': element['currentDate']
+           }
           this.reviewsAdded.push(reviewDetails)
         })
       });

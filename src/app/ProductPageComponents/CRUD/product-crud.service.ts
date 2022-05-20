@@ -11,11 +11,11 @@ import {
   providedIn: 'root'
 })
 export class ProductCRUDService {
-  
-  productsRef: AngularFireList<any>
-  productRef: AngularFireObject<any> 
 
-  constructor(private db: AngularFireDatabase, private httpClient:HttpClient) {
+  productsRef: AngularFireList<any>
+  productRef: AngularFireObject<any>
+
+  constructor(private db: AngularFireDatabase, private httpClient: HttpClient) {
     this.productsRef = db.list('Products/');
     this.productRef = db.object('Products/');
   }
@@ -30,11 +30,11 @@ export class ProductCRUDService {
       category: product.category,
     });
   }
-  // Fetch Single Product Object
+
   GetProduct(id: string) {
-    this.productRef = this.db.object('Products/' + id);
-    return this.productRef;
+    return this.httpClient.get("https://hci-web-app-default-rtdb.europe-west1.firebasedatabase.app/Products/" + id + "/.json")
   }
+
   // Fetch Products List
   GetProductsList() {
     this.productsRef = this.db.list('Products/');
@@ -54,7 +54,5 @@ export class ProductCRUDService {
     this.productRef = this.db.object('Products/' + id);
     this.productRef.remove();
   }
-  FetchProductDetails(id: string) {
-    return this.httpClient.get("https://hci-web-app-default-rtdb.europe-west1.firebasedatabase.app/Products/" + id + "/.json")
-  }
+
 }

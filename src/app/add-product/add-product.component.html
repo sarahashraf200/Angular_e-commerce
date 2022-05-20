@@ -1,29 +1,29 @@
-<form class="form-container" >
+<form [formGroup]="newProductForm" class="form-container" >
 
     <label class="label-style" for="ProductTitle">Product Title:</label>
-    <input class="form-control" [(ngModel)]="name" type="text" id="ProductTitle" name="ProductTitle" required><br> 
+    <input class="form-control" formControlName="name"  type="text" id="ProductTitle" name="ProductTitle" required><br> 
 
     <label class="label-style" for="price">Price:</label>
-    <input class="form-control" [(ngModel)]="price" type="text" id="price" name="price" placeholder="ex: $25" required><br>
+    <input class="form-control"  formControlName="price"  type="text" id="price" name="price" placeholder="ex: $25" required><br>
 
     <label class="label-style" for="Image">Image:</label>
-    <input class="form-control" [(ngModel)]="img" type="text" id="img" name="img" required><br> 
+    <input class="form-control"  formControlName="img" type="text" id="img" name="img" required><br> 
 
 
     <label class="label-style" for="Description">Description:</label>
-    <textarea class="form-control" [(ngModel)]="desc" id="Description" name="Description" rows="6" cols="50" required="yes" 
+    <textarea class="form-control"  formControlName="desc" id="Description" name="Description" rows="6" cols="50" required
     placeholder="Write product description"></textarea>
 
     <br>
     <div id="dropdownlist">
         <label class="label-style" for="subcategory">Category:</label>
-        <select  class="form-select" [(ngModel)]= "category" name="CategoryList">
+        <select  class="form-select"  formControlName="category"  name="CategoryList" required>
             <option selected disabled  value="">Choose Category</option>
             <option *ngFor="let element of categories">{{element}}</option>
         </select>
   </div>
   <br>
-  <button (click)="onSubmit()"  class="btn btn-secondary custom-btn" type="submit">Submit</button>
+  <button (click)="onSubmit()"  class="btn btn-secondary custom-btn" type="submit"  [disabled]="!newProductForm.valid">Submit</button>
 
   </form>
 
