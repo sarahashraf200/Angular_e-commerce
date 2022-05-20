@@ -26,21 +26,29 @@ export class SearchPageComponent implements OnInit {
 
   }
 
-  //to be done 
   filter(itemList: any[]): any[] {
-    // console.log((this.category));
     
-    if(this.category=="all_products"){
-    // console.log(this.category);
-
-      return itemList;
-    }
+   
+    
     let result: any[] = [];
     
     itemList.forEach(element => {
-   
-      if(element.category==this.category)
-      result.push(element);
+  
+    
+      
+      if(element.name.toUpperCase().includes(this.itemName.toUpperCase()))
+      {
+
+        result.push(element);
+        return;
+
+      
+
+      }
+      if(element.category.toUpperCase().includes(this.itemName.toUpperCase()))
+      {
+        result.push(element);
+      }
       
     });
     return result;
