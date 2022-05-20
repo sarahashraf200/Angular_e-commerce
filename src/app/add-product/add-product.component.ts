@@ -11,8 +11,8 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 })
 export class AddProductComponent implements OnInit {
 
-  categories = ['Women', 'Men']
-  
+  categories = ['women', 'Men']
+
   newProductForm = new FormGroup({
     category: new FormControl('', Validators.required),
     name: new FormControl('', Validators.required),
