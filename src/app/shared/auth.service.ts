@@ -20,7 +20,7 @@ export class AuthService {
 
   constructor(private fireauth : AngularFireAuth , private router : Router) {
   
-      this.final_try();
+      this.isAdmin();
   
    }
   // LOGIN method
@@ -65,7 +65,7 @@ export class AuthService {
   // this is the method used to verify if a user is logged in then it store the usrr ID
   //and comapre it to the ID of the admin if it matches return true else return false
   //so that only admin can access the ADD PRODUCT page
- final_try(){
+ isAdmin(){
   
   this.fireauth.onAuthStateChanged(user => {
    

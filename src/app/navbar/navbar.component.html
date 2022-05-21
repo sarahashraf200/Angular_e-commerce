@@ -21,7 +21,14 @@
                      <mat-menu #lazyMenu="matMenu">
                         <ng-template matMenuContent >
                            <button mat-menu-item>Settings</button>
-                           <button mat-menu-item (click) = "logout()">Log out</button>
+                           <ng-container *ngIf= "islogin()">
+                            <button mat-menu-item (click) = "logout()">Log out</button>
+                           </ng-container>
+                           <ng-container *ngIf= "!islogin()">
+                            <button mat-menu-item (click) = "login()">Log in</button>
+                           </ng-container>
+                           
+                           <!--<button mat-menu-item (click) = "logout()">Log out</button>-->
                          </ng-template>
                        </mat-menu>
                      <a class="icons fa fa-user link-dark" [matMenuTriggerFor]="lazyMenu" >

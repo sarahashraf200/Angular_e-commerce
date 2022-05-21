@@ -5,6 +5,7 @@ import { _getEventTarget } from '@angular/cdk/platform';
 import {Router} from '@angular/router';
 
 
+
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
@@ -14,9 +15,18 @@ export class NavbarComponent implements OnInit {
   name:string="";
   constructor(private route: Router , private auth : AuthService ) { }
   ngOnInit(): void {
+    this.islogin();
   }
   logout (){
     this.auth.logout();
+  }
+
+  islogin(){
+  // console.log( "helloooo" , this.auth.isLoggedIn());
+   return this.auth.isLoggedIn()
+  }
+  login(){
+    this.route.navigate(['/login']);
   }
   btnClick(e:KeyboardEvent):void {
     if (e.key=='Enter'){
