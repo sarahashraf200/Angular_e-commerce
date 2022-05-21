@@ -47,7 +47,7 @@ export class SearchPageComponent implements OnInit {
           return;
         }
       }
-      if(element.category.toUpperCase().includes(this.itemName.toUpperCase()))
+      if(element.category.toUpperCase()==(this.itemName.toUpperCase()))
       {
         if(element.price>=this.min && element.price<=this.max ){ 
           result.push(element);
