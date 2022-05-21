@@ -30,14 +30,15 @@ export class CartCRUDService {
 
     this.productsRef = db.list("/Cart/" + this.getuserID());
     this.productRef = db.object("/Cart/" + this.getuserID());
-    //  this.user_id = localStorage.getItem("userID")
+   
   }
 
   setID() {
 
   }
+  // this method is used to get the USER ID which is used to create a SPECIFIC CART for EACH user inside the cart node
   getuserID(){
-    if (this.auth.user_try()) {
+    if (this.auth.isLoggedIn()) {
       this.user_id = localStorage.getItem("userID")
     }
 
@@ -65,40 +66,34 @@ export class CartCRUDService {
       });
   }
 
+  // returns a list of all the products stored in the USER'S cart
   GetCartList() {
     this.productsRef = this.db.list("/Cart/" + this.getuserID());
     return this.productsRef;
   }
-  // Update Product Object
-  UpdateCartItem(product: ProductInfo) {
-    this.productRef.update({
-      name: product.name,
-      price: product.price,
-      desc: product.desc,
-      img: product.img
-    });
-  }
-  // Delete Product Object
+ 
+  // Temporarly deletes an item from the USER's cart with the ability to undo it 
   DeleteProductFromCart(id: string) {
     this.productRef = this.db.object("/Cart/" + this.getuserID() + id);
     this.productRef.update({
       qt: 0
     });
   }
-
+  // deletes an item from the USER'S cart finally and NO ability to undo
   FinalDeleteProductFromCart(id: string) {
     this.httpClient.delete("https://hci-web-app-default-rtdb.europe-west1.firebasedatabase.app" + "/Cart/" + this.getuserID() + id + "/.json")
       .subscribe(data => {
         console.log(data);
       });
   }
-
+// undo the deletion if it's not deleted finally from the cart
   undoDeletion(id: string) {
     this.productRef = this.db.object("/Cart/" + this.getuserID() + id);
     this.productRef.update({
       qt: 1
     });
   }
+  // increments the quantity of the item in the USER'S cart
   addQuantity(id: string, qt: any) {
     this.productRef = this.db.object("/Cart/" + this.getuserID() + id);
     qt = qt + 1;
@@ -108,24 +103,17 @@ export class CartCRUDService {
 
     console.log(qt);
   }
+  // decrements the quantity of the item in the USER'S cart
   minusQuantity(id: string, qt: any) {
     this.productRef = this.db.object("/Cart/" + this.getuserID() + id);
     qt = qt - 1;
     this.productRef.update({
       qt: qt
     });
-    console.log(this.getuserID())
-    console.log("sarah")
-    console.log(qt);
+ 
   }
 
-  UpdateProductFromCart(id: string, qt: number) {
-    this.productRef = this.db.object("/Cart/" + this.getuserID() + id);
-    this.productRef.update({
-      qt: qt
-    });
-
-  }
+  // empty the USER'S cart from all the items
 
   DeleteCartList(itemIdList: any[]) {
     itemIdList.forEach(id => {
@@ -133,4 +121,23 @@ export class CartCRUDService {
       this.productRef.remove();
     });
   }
+
+
+  /* UpdateProductFromCart(id: string, qt: number) {
+    this.productRef = this.db.object("/Cart/" + this.getuserID() + id);
+    this.productRef.update({
+      qt: qt
+    });
+
+  }*/
+
+   // Update Product Object
+  /*UpdateCartItem(product: ProductInfo) {
+    this.productRef.update({
+      name: product.name,
+      price: product.price,
+      desc: product.desc,
+      img: product.img
+    });
+  }*/
 }

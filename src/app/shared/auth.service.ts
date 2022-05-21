@@ -18,28 +18,21 @@ export class AuthService {
 
 
 
-  
-
-  
-   
-   
-
-
   constructor(private fireauth : AngularFireAuth , private router : Router) {
   
       this.final_try();
   
    }
-  
+  // LOGIN method
   login(email : string, password : string) {
     localStorage.clear();
+    // in case of success it eneters the .then bracket and other wise it enters the err and raise an alert message
     this.fireauth.signInWithEmailAndPassword(email,password).then( res => {
         localStorage.setItem('token','true');
       
-       this.flag_login = email
        this.flag_logged_in = true;
        
-        this.user_try();
+      //  this.user_try();
        console.log(this.flag_logged_in);
        this.router.navigate(['/home']);
 
@@ -52,6 +45,10 @@ export class AuthService {
     })
     
   }
+
+  // this is the method used to verify if a user is logged in or not and it's used in the AUTH GAURD 
+  //so that only logged in users can navigate to cart page
+
   isLoggedIn(){
     const loggedin = localStorage.getItem('token');
     if (loggedin == 'true'){
@@ -64,39 +61,10 @@ export class AuthService {
     return  this.flag_logged_in;
   }
   
-  /*user_try(){
-   this.fireauth.authState.subscribe( user =>{
-      if (user) { this.user_id = user.uid }
-    });
-    console.log("USER ID" , this.user_id);
-    if (this.user_id == "xIYFj1lGItQePqAFEli8qDN61Zr1"){
-      return true;
-    }
-    else{
-      return false;
-    }
-  }*/
-  user_try(){
-      
-      this.fireauth.onAuthStateChanged(user => {
-     
-        if (user) {
-        
-          return true;
-          }
-      
-      else{
-        return false;
-      }
-       
-      });
-     if(localStorage.getItem("userID")){
-       return true;
-     }
-     else{
-       return false;
-     }
-  }
+ 
+  // this is the method used to verify if a user is logged in then it store the usrr ID
+  //and comapre it to the ID of the admin if it matches return true else return false
+  //so that only admin can access the ADD PRODUCT page
  final_try(){
   
   this.fireauth.onAuthStateChanged(user => {
@@ -136,6 +104,7 @@ export class AuthService {
       this.router.navigate(['/register']);
     })
   }
+  // logout method empty the local storage including the user ID and the token
   logout() {
     this.fireauth.signOut().then( () => {
       localStorage.removeItem('token');
@@ -145,10 +114,33 @@ export class AuthService {
     localStorage.removeItem('userID');
     console.log("removed");
     localStorage.clear();
-    this.user_try()
+  //  this.user_try()
     }, err => {
       alert(err.message);
     })
   }
+
+  /* 
+  user_try(){
+      
+      this.fireauth.onAuthStateChanged(user => {
+     
+        if (user) {
+        
+          return true;
+          }
+      
+      else{
+        return false;
+      }
+       
+      });
+     if(localStorage.getItem("userID")){
+       return true;
+     }
+     else{
+       return false;
+     }
+  }*/
 
 }
