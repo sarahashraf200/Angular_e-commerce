@@ -10,7 +10,7 @@ import { AngularFireAuth } from '@angular/fire/compat/auth';
   providedIn: 'root'
 })
 export class AdminGuard implements CanActivate, CanActivateChild, CanDeactivate<unknown>, CanLoad {
-  user_id = "";
+
   constructor(private auth : AuthService , private router : Router  , private fireauth : AngularFireAuth ){}
   canActivate(
     route: ActivatedRouteSnapshot,

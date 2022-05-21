@@ -37,7 +37,7 @@ export class HomePageComponent implements OnInit {
     this.crud.GetProductsList().snapshotChanges()
     .subscribe(actions => {
       actions.forEach(action => {
-        var product = action.payload.val()
+        var product = action.payload.val() 
         product.id = action.key
       this.Products.push(product)
       });

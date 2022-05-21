@@ -15,7 +15,7 @@ export class LoginComponent implements OnInit {
 
   constructor(private auth : AuthService) { }
    exform: FormGroup = new FormGroup({
-    //'name' : new FormControl(null, Validators.required),
+   
     'email' : new FormControl (this.email, [Validators.required, Validators.email]) ,
     'password' : new FormControl(this.password, [Validators.required, Validators.minLength(6)])
   });
@@ -23,25 +23,25 @@ export class LoginComponent implements OnInit {
   get f(): { [key: string]: AbstractControl}{
     return this.exform.controls;
   }
-  clicksub() {
-    console.log(this.exform.value);
-    this.exform.reset();
-  }
-
+  
   login(): void {
   this.submitted = true;
    
     console.log(this.exform.value.email);
-   
+
+   // calling the firebase auth service to auth the login 
     this.auth.login(this.email,this.password);
+
+    // reseting the form
     this.exform.reset();
+    
     this.submitted = false;
 
   }
   
 
   ngOnInit(): void {
-    //this.auth.final_try();
+   
   
   }
 

@@ -45,8 +45,7 @@
                           <td><img style="width: 120px;" src="/assets/product-details/{{item.img}}.jpg" alt=""></td>
                           <td style="width: 25%;">{{item.desc}}</td>
                           <th style="width: 12%;">{{item.price | currency: 'USD' }}</th>
-                          <!--<td style="width: 12%;">{{item.qt}}</td>-->
-                          <!--<input type=" text" [(ngModel)]="qt"> -->
+                          
                         
                              
                           <button style="margin-left: 5px;" class="btn btn-success" (click)="minusqt(item.id,item.qt)"><i class="fa fa-minus" style="font-size:10px;color:black"></i></button>
@@ -56,7 +55,7 @@
                           <td style="width: 12%;">{{item.qt * item.price | currency: 'USD'}}</td>                       
                           <td>
                               <button  (click)="removeItem(item.id)" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
-                             <!--- <button (click) ="updateqt(item.id, qt)"> </button>-->
+                          
                           </td>
                         </ng-container >
                       </tr>
