@@ -1,4 +1,4 @@
-<!-- carousel -->
+!-- carousel -->
 <app-home-carousel></app-home-carousel>
 
 <!-- end carousel -->
@@ -7,7 +7,7 @@
 
 <div id="categories">
     <!-- women -->
-    <div id="women" class="category">
+    <div routerLink="/search-page/women" id="women" class="category">
         <div>
             <p id="" class="div_txt">
                 <span>Women</span>
@@ -23,7 +23,7 @@
     </div>
     <!-- women hidden div -->
 
-    <div id="men" class="category">
+    <div routerLink="/search-page/men"  id="men" class="category">
         <div>
             <p id="" class="div_txt">
                 <span>Men</span>
@@ -37,7 +37,7 @@
             </p>
         </div>
     </div>
-    <div id="Accessories" class="category">
+    <div  routerLink="/search-page/Accessories" id="Accessories" class="category">
         <div>
             <p id="" class="div_txt">
                 <span>Accessories</span>
@@ -113,4 +113,4 @@
 
     </div>
 </div>
-<button (click)="logout()"> logout</button>
+<!-- <button (click)="logout()"> logout</button> -->
