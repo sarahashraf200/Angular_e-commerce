@@ -24,7 +24,7 @@ export class SearchPageComponent implements OnInit {
   ngOnInit(): void {
     this.route.url.subscribe(url =>{
       this.itemName = this.route.snapshot.params['name'];
-      console.log(this.itemName)
+      // console.log(this.itemName)
     });
     this.getProducts();
 
