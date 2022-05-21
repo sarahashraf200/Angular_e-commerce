@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { reload } from 'firebase/auth';
+// import * as internal from 'stream';
 import { ProductDataService } from '../product-data.service';
 import { ProductCRUDService } from '../ProductPageComponents/CRUD/product-crud.service';
 import { AuthService } from '../shared/auth.service';
@@ -13,6 +15,8 @@ export class SearchPageComponent implements OnInit {
   category:string="all_products"
   itemName: string = "";
   Products :Array<any> = [];
+  min :number =0;
+  max:number =99999;
 
   constructor( private route: ActivatedRoute,
     public productService: ProductDataService,  private auth : AuthService, private crud: ProductCRUDService) { }
@@ -34,20 +38,20 @@ export class SearchPageComponent implements OnInit {
     
     itemList.forEach(element => {
   
-    
+    console.log();
       
       if(element.name.toUpperCase().includes(this.itemName.toUpperCase()))
       {
-
-        result.push(element);
-        return;
-
-      
-
+        if(element.price>=this.min && element.price<=this.max ){ 
+          result.push(element);
+          return;
+        }
       }
       if(element.category.toUpperCase().includes(this.itemName.toUpperCase()))
       {
-        result.push(element);
+        if(element.price>=this.min && element.price<=this.max ){ 
+          result.push(element);
+        }
       }
       
     });
@@ -72,5 +76,11 @@ export class SearchPageComponent implements OnInit {
 
       console.log(e);
   }
+  // clickme(){
+  // //  console.log(document.getElementById('mi').value);
+  // console.log(this.min);
+  // console.log(this.max);
+  // this.route;
+  // }
 
 }

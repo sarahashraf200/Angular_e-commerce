@@ -166,7 +166,26 @@
     margin: 0 2% 0 2%;
     margin-bottom: 2%
 }
-
+.product_img{
+   
+    min-width: 232px;
+    width: 232px;
+    height: 287px;
+    font-family: 'Arial', sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 13px;
+    letter-spacing: normal;
+    color: #333333;
+    text-align: center;
+    line-height: normal;
+    text-transform: none;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-right: 0px;
+   
+    
+}
 .PRODUCT_OVERVIEW{
     text-rendering: optimizeLegibility;
     font-kerning: normal;
@@ -210,4 +229,14 @@
     /* margin-right: auto; */
     margin: 0 2% 0 2%;
     margin-bottom: 2%
+}
+
+.prudct_price{
+    font: 16px;
+    font-weight:bold ;
+    color: red;
+}
+.product_name{
+    font: 20px;
+    color: #000000;
 }

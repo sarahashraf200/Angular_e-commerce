@@ -14,9 +14,10 @@
                 <label class="from_label" for="from">From</label>
                 <label class="to_label" for="To">To</label>
             </div>
-            <input   OnlyNumber="true" class="from_input" type="number" name="from" id="">
-            <input class="to_input" type="number" name="To" id="">
-            <button class="price_button">Go</button>
+            <input OnlyNumber="true" class="from_input" type="number" min="0" [(ngModel)]="min">
+            <input class="to_input" type="number" name="To" min="0" max ="99999" id="max" [(ngModel)]="max">
+            <!-- <button  class="price_button">Go</button> -->
+            <br>
         </div>
         <div class="border center">
             <p>Average Customer Rating </p>
@@ -35,9 +36,20 @@
             <!-- <div class="product" routerLink="/product-page/{{item.id}}" *ngFor="let item of Products; let i = index" style="background-image: url('/assets/product-details/{{item.img}}.jpg')">
     
             </div> -->
-            <div class="product" routerLink="/product-page/{{item.id}}" *ngFor="let item of filter(Products); let i = index" style="background-image: url('/assets/product-details/{{item.img}}.jpg')">
-    
+            <div class="product" routerLink="/product-page/{{item.id}}" *ngFor="let item of filter(Products); let i = index" >
+            <div class="product_img" style="background-image: url('/assets/product-details/{{item.img}}.jpg')">
+                
+            </div >
+                    <div >
+                        <h1 class ="product_name">
+                            {{item.name}}
+                        </h1>
+                        <h1 style="color: black;">
+                            price: <span class="prudct_price">{{item.price}}</span>
+                        </h1>
+                    </div>
             </div>
+
     
     
         </div>
