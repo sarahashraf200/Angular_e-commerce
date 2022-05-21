@@ -40,6 +40,7 @@ import { SearchPageComponent } from './search-page/search-page.component';
 
 import { MatMenuModule } from '@angular/material/menu';
 import { HttpClientModule } from '@angular/common/http';
+import { HomeCarouselComponent } from './home-page/home-carousel/home-carousel.component';
 
 @NgModule({
   declarations: [
@@ -60,6 +61,7 @@ import { HttpClientModule } from '@angular/common/http';
     RelatedProductsComponent,
     CarouselProductDetailsComponent,
     SearchPageComponent,
+    HomeCarouselComponent,
   ],
   imports: [
     BrowserModule,
