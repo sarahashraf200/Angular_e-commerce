@@ -42,6 +42,7 @@ export class CartCRUDService {
       this.user_id = localStorage.getItem("userID")
     }
 
+
     if (this.user_id) {
       this.parsed = this.user_id.replace(/\"/g, "")
 
